@@ -1,9 +1,5 @@
 {
-  "meteor": {
-    "git": "https://github.com/meteor/meteor.git",
-    "branch": "master",
-    "commit": "86a52e61428f5dcd9e75eb1de0e303caf0c26a22"
-  },
+  "meteor": {},
   "dependencies": {
     "basePackages": {
       "urlify2": {},
