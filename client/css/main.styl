@@ -440,6 +440,7 @@ body {
 		}
 	}
 	.builddeck {
+		margin-top 14px
 		.row {
 			.filter1 {
 				ul {
@@ -493,7 +494,7 @@ body {
 					list-style-type none
 					padding 0
 					margin 0
-					margin-left -37px
+					margin-left -36px
 					background fuipreclouds
 					li {
 						line-height 31px
@@ -524,43 +525,105 @@ body {
 			}
 			.filter3 {
 				ul.classes {
-					margin 0
+					margin -31px 0 0 0 
 					padding 0
 					margin-left -29px
 					list-style-type none
-					height 41px
+					height 31px
 					li {
-						width 50%
+						width 20%
 						background fuipreclouds
 						float left
 						padding 6px 10px
-						height 41px
-						font-size 20px
+						height 31px
+						font-size 19px
 						text-align center
 						border-bottom 1px solid white
-						line-height 29px
-						&:first-child {
-							border-right 1px solid white
+						line-height 19px
+						border-radius(6px 0 0 0)
+						&:last-child {
+							border-left 1px solid white
+							border-radius(0 6px 0 0)
+						}
+						&:hover {
+							background fuiorange
+							color white
+							cursor pointer
 						}
 					}
 				}
 				ul.cards {
-					margin 0
-					margin-left -29px
-					padding 0 20px
+					margin 0 0 1px -29px
+					padding 10px 50px
 					list-style-type none
 					height 458px
+					background fuipreclouds
+					height 502px
+					position relative
 					li {
 						float left
 						width 25%
 						padding 0px
-						background fuipreclouds
 						height auto
 						img {
 							display block
 							width 100%
 						}
 					}
+					.arrow_left, .arrow_right {
+						position absolute
+						top 244px
+						left 8px
+						color fuiorange
+						font-size 36px
+						color fuiconcrete
+						&:hover {
+							color fuiorange
+							cursor pointer
+						}
+					}
+					.arrow_right {
+						left initial
+						right 8px
+					}
+				}
+				ul.manas {
+					margin 0
+					list-style-type none
+					background fuipreclouds
+					margin-left -29px
+					height 46px
+					padding 0
+					
+					li {
+						width 54px
+						height 46px
+						float left
+						line-height 27px
+						border-right 1px solid white
+						padding 5px 6px
+						text-align center
+						font-size 15px
+						font-family font_standart !important
+						span {
+							background url(/img/mana.png) no-repeat
+							background-size 100%
+							width 40px
+							height 35px
+							float left
+							text-align center
+							color white
+							font-family font_standart
+							font-weight 600
+							line-height 35px
+							font-size 18px
+						}
+						&:hover {
+							background fuiorange
+							cursor pointer
+						}
+					}
+
 				}
 			}
 			.filter4 {
@@ -571,6 +634,112 @@ body {
 					border-bottom 1px solid white
 					border-radius(0 6px 0 0)
 				}
+				p.title {
+					font-size: 15px;
+					margin 0 0 1px -29px 
+					padding: 4px;
+					border: 1px dashed fuisilver;
+					color fuisilver
+				}
+				ul.curves {
+					padding 2px 9px
+					background fuisilver
+					margin 0
+					height 160px
+					list-style-type none
+					margin-left -29px
+					li {
+						width 12.5%
+						padding-right 1px
+						float left
+						.number {
+							text-align center
+							font-size 12px
+							color white
+							line-height 25px
+							font-weight 600
+						}
+						.bar {
+							height 100px
+							background fuipreclouds
+							margin-bottom 8px
+							position relative
+							.actual {
+								position absolute
+								bottom 0
+								width 100%
+								background fuiorange
+								height 40px
+							}
+						}
+						.mana {
+							span {
+								background url(/img/mana.png) no-repeat
+								background-size 100%
+								width 18px
+								height 16px
+								line-height 16px
+								margin 2px
+								display block
+								text-align center
+								color white
+								font-size 11px
+								font-weight 600
+							}
+						}
+						&:nth-child(2n+1) {
+							.bar {
+								background white
+							}
+						}
+					}
+				}
+				ul.cardlist {
+					margin 1px 0 1px -29px
+					padding 0
+					background fuipreclouds
+					height 266px
+					list-style-type: none
+					overflow scroll
+					overflow-x hidden
+					li {
+						border-bottom 1px solid white
+						display block
+						height 30px
+						width 100%
+						padding 3px
+						&:nth-child(2n+2) {
+							background rgba(0,0,0,0.1)
+						}
+						span.mana {
+							background url(/img/mana.png) no-repeat
+							background-size 100%
+							width 26px
+							height 24px
+							line-height 24px
+							float left
+							color white
+							text-align center
+
+ 						}
+						span.name {
+							float left
+							margin 0 6px
+							height 24px
+							line-height 24px
+						}
+						span.count {
+							float right
+							height 24px
+							line-height 24px
+							background fuisilver
+							padding 0 2px
+							border-radius(4px)
+							color white
+						}
+					}
+				}
+
 			}
 		}
 	}
