@@ -6,4 +6,13 @@
 <body>
 	{{loginButtons}}
 	<h1>hello world</h1>
+	{{> cards}}
 </body>
+
+<template name="cards">
+	{{#each cards}}
+		<div>
+		{{name}}
+		</div>
+	{{/each}}
+</template>
