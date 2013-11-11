@@ -2,16 +2,16 @@
 	<div class="container builddeck">
 		<div class="row">
 			<div class="col-md-1 filter1">
-				<ul>
-					<li class="druid"></li>
-					<li class="hunter"></li>
-					<li class="mage"></li>
-					<li class="paladin"></li>
-					<li class="priest"></li>
-					<li class="rogue"></li>
-					<li class="shaman"></li>
-					<li class="warlock"></li>
-					<li class="warrior"></li>
+				<ul id="classes">
+					<li class="Druid"></li>
+					<li class="Hunter"></li>
+					<li class="Mage"></li>
+					<li class="Paladin"></li>
+					<li class="Priest"></li>
+					<li class="Rogue"></li>
+					<li class="Shaman"></li>
+					<li class="Warlock"></li>
+					<li class="Warrior"></li>
 				</ul>
 			</div>
 			<div class="col-md-1 filter2">
@@ -38,18 +38,11 @@
 			</div>
 			<div class="col-md-8 filter3">
 				<ul class="classes">
-					<li >Mage</li>
-					<li >Neutral</li>
+					<li id="notneutral">{{selected_class_tab}}</li>
+					<li id="neutral">Neutral</li>
 				</ul>
 				<ul class="cards">
-					<li><img src="http://media-hearth.cursecdn.com/avatars/33/438/605.png"/></li>
-					<li><img src="http://media-hearth.cursecdn.com/avatars/33/438/605.png"/></li>
-					<li><img src="http://media-hearth.cursecdn.com/avatars/33/438/605.png"/></li>
-					<li><img src="http://media-hearth.cursecdn.com/avatars/33/438/605.png"/></li>
-					<li><img src="http://media-hearth.cursecdn.com/avatars/33/438/605.png"/></li>
-					<li><img src="http://media-hearth.cursecdn.com/avatars/33/438/605.png"/></li>
-					<li><img src="http://media-hearth.cursecdn.com/avatars/33/438/605.png"/></li>
-					<li><img src="http://media-hearth.cursecdn.com/avatars/33/438/605.png"/></li>
+					{{> cards}}
 					<i class="fa fa-arrow-circle-o-left arrow_left"></i>
 					<i class="fa fa-arrow-circle-o-right arrow_right"></i>
 				</ul>
@@ -68,7 +61,6 @@
 			</div>
 			<div class="col-md-2 filter4">
 				<div class="image">
-şasld
 				</div>
 				<p class="title" contenteditable="true">Give a name to your deck</p>
 				<ul class="curves">

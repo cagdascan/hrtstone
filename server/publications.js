@@ -1,3 +1,3 @@
-	Meteor.publish("cards01", function(){
-		return Cards.find({'rarity': 'common'});
-	});
+Meteor.publish("cards01", function (card_query){
+	return Cards.find(card_query);
+});

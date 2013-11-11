@@ -1,6 +1,5 @@
 Meteor.Router.add({
-  '': 'decks',
+  '/'									 : 'decks',
   '/deck/miracle-rogue': 'singledeck',
   '/build-deck': 'builddeck'
-
 });
