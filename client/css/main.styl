@@ -522,10 +522,13 @@ body {
 								cursor default 
 							}
 						}
-						&:hover {
+						&:hover, &.active {
 							background fuiorange
 							color white
 							cursor pointer
+						}
+						&.active {
+							background fuiamethyst
 						}
 					}
 				}
@@ -656,8 +659,8 @@ body {
 						font-size 15px
 						font-family font_standart !important
 						span {
-							background url(/img/mana.png) no-repeat
-							background-size 100%
+							background url(/img/mana.png) no-repeat 0 0
+							background-size 200%
 							width 40px
 							height 35px
 							float left
@@ -669,11 +672,12 @@ body {
 							font-size 18px
 						}
 						&:hover, &.active {
-							background fuiorange
 							cursor pointer
 						}
 						&.active {
-							background fuisunflower
+							span {
+								background-position -40px 0
+							}
 						}
 					}
 
@@ -687,12 +691,14 @@ body {
 					border-bottom 1px solid white
 					border-radius(0 6px 0 0)
 				}
-				p.title {
-					font-size: 15px;
+				input.title {
+					font-size: 14px;
 					margin 0 0 1px -29px 
-					padding: 4px;
+					padding: 3px;
 					border: 1px dashed fuisilver;
 					color fuisilver
+					width 194px
+					height 31px
 				}
 				ul.curves {
 					padding 2px 9px
@@ -728,7 +734,7 @@ body {
 						.mana {
 							span {
 								background url(/img/mana.png) no-repeat
-								background-size 100%
+								background-size 200%
 								width 18px
 								height 16px
 								line-height 16px
@@ -765,8 +771,8 @@ body {
 							background rgba(0,0,0,0.1)
 						}
 						span.mana {
-							background url(/img/mana.png) no-repeat
-							background-size 100%
+							background url(/img/mana.png) -26px 0 no-repeat
+							background-size 200%
 							width 26px
 							height 24px
 							line-height 24px
@@ -820,23 +826,45 @@ body {
 					}
 					#done {
 						font-family font_standart !important
-						.modal-header {
+						.modal-content {
 							background fuipreclouds
-							border-radius(6px 6px 0 0) 
-							overflow hidden
-							.modal-title {
-								font-family font_standart !important
-								width 60%
-								font-size 20px
-								height 40px
+							.modal-header {
+								border-radius(6px 6px 0 0) 
+								overflow hidden
+								border none
+								.modal-title {
+									font-family font_standart !important
+									width 60%
+									font-size 20px
+									height 40px
+								}
 							}
-						}
-						.modal-body {
-							padding 15px
-							textarea {
-								resize vertical
-								font-size 16px
-								font-family font_standart !important
+							.modal-body {
+								padding 15px
+								textarea {
+									resize vertical
+									font-size 16px
+									font-family font_standart !important
+								}
+							}
+							.modal-footer {
+								margin 0
+								padding 15px
+								border none
+							}
+							.btn {
+								border none !important
+								&.btn-cancel {
+									background white !important
+									color fuiconcrete
+								}
+								&.btn-save {
+									background fuiemerald
+									color white
+									&:hover {
+										background fuinephritis
+									}
+								}
 							}
 						}
 					}

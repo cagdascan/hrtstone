@@ -32,6 +32,9 @@ Template.builddeck.events({
 	},
 	'click i.fa.fa-arrow-circle-o-left.arrow_left': function (event){
 		Session.set('page_number', (Session.get('page_number') - 1 ) % Session.get('page_count'));
+	},
+	'click .filter2 ul li': function (event){
+		$(event.currentTarget).toggleClass('active');
 	}
 });
 
