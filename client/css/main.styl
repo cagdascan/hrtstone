@@ -459,32 +459,39 @@ body {
 						background fuisilver url(/img/classes256.png) no-repeat 0 0;
 						background-size 100%
 						margin-bottom 1px
-						&.Druid {
+						&#Druid {
 							background-position 0 0
 						}
-						&.Hunter {
+						&#Hunter {
 							background-position 0 -60px
 						}
-						&.Mage {
+						&#Mage {
 							background-position 0 -120px
 						}
-						&.Paladin {
+						&#Paladin {
 							background-position 0 -180px
 						}
-						&.Priest {
+						&#Priest {
 							background-position 0 -240px
 						}
-						&.Rogue {
+						&#Rogue {
 							background-position 0 -300px
 						}
-						&.Shaman {
+						&#Shaman {
 							background-position 0 -360px
 						}
-						&.Warlock {
+						&#Warlock {
 							background-position 0 -420px
 						}
-						&.Warrior {
+						&#Warrior {
 							background-position 0 -480px
+						}
+						&:hover, &.active {
+							background-color fuiorange
+							cursor pointer
+						}
+						&.active {
+							background-color fuiamethyst
 						}
 					}
 				}
@@ -525,30 +532,72 @@ body {
 			}
 			.filter3 {
 				ul.classes {
-					margin -31px 0 0 0 
+					margin -35px 0 0 0 
 					padding 0
 					margin-left -29px
 					list-style-type none
-					height 31px
+					height 35px
 					li {
-						width 20%
+						width 15%
 						background fuipreclouds
 						float left
-						padding 6px 10px
-						height 31px
-						font-size 19px
-						text-align center
+						padding 5px
+						height 35px
+						font-size 18px
+						text-align left
 						border-bottom 1px solid white
-						line-height 19px
+						line-height 25px
 						border-radius(6px 0 0 0)
 						&:last-child {
 							border-left 1px solid white
 							border-radius(0 6px 0 0)
 						}
-						&:hover {
+						&:hover, &.active {
 							background fuiorange
 							color white
 							cursor pointer
+						}
+						&.active {
+							background-color fuiamethyst
+						}
+						span.image {
+							background url(/img/classes.png) no-repeat
+							background-size 100%
+							width 25px
+							height 25px
+							float left
+							margin-right 8px
+							border-radius(4px)
+							&.Druid {
+								background-position 0 -25px
+							}
+							&.Hunter {
+								background-position 0 -50px
+							}
+							&.Mage {
+								background-position 0 -75px
+							}
+							&.Paladin {
+								background-position 0 -100px
+							}
+							&.Priest {
+								background-position 0 -125px
+							}
+							&.Rogue {
+								background-position 0 -150px
+							}
+							&.Shaman {
+								background-position 0 -175px
+							}
+							&.Warlock {
+								background-position 0 -200px
+							}
+							&.Warrior {
+								background-position 0 -225px
+							}
+							&.Neutral {
+								background-position 0 -250px
+							}
 						}
 					}
 				}
@@ -619,9 +668,12 @@ body {
 							line-height 35px
 							font-size 18px
 						}
-						&:hover {
+						&:hover, &.active {
 							background fuiorange
 							cursor pointer
+						}
+						&.active {
+							background fuisunflower
 						}
 					}
 
@@ -699,7 +751,7 @@ body {
 					margin 1px 0 1px -29px
 					padding 0
 					background fuipreclouds
-					height 266px
+					height 219px
 					list-style-type: none
 					overflow scroll
 					overflow-x hidden
@@ -740,7 +792,55 @@ body {
 						}
 					}
 				}
-
+				.submit_deck {
+					background fuipreclouds
+					margin-left -29px
+					height 46px
+					border-radius(0 0 6px 0)
+					padding 6px
+					.selection_process {
+						float left
+						line-height 34px
+						font-size 20px
+						margin-left 4px
+						color fuiwetasphalt
+					}
+					.btn-done {
+						float right
+						background fuinephritis
+						color white
+						font-weight 600
+						font-size 17px
+						line-height 24px
+						padding 5px 30px
+						border none
+						&:hover {
+							background fuiemerald
+						}
+					}
+					#done {
+						font-family font_standart !important
+						.modal-header {
+							background fuipreclouds
+							border-radius(6px 6px 0 0) 
+							overflow hidden
+							.modal-title {
+								font-family font_standart !important
+								width 60%
+								font-size 20px
+								height 40px
+							}
+						}
+						.modal-body {
+							padding 15px
+							textarea {
+								resize vertical
+								font-size 16px
+								font-family font_standart !important
+							}
+						}
+					}
+				}
 			}
 		}
 	}
