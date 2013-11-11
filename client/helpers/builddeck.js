@@ -12,9 +12,13 @@ Template.builddeck.events({
 		Session.set('neutral_selected', true);
 	},
 	'click ul.classes li#notneutral': function (event){
-		
 		Session.set('neutral_selected', false);
-		
+	},
+	'click i.fa.fa-arrow-circle-o-right.arrow_right': function (event){
+		Session.set('page_number', (Session.get('page_number') + 1 ) % Session.get('page_count'));
+	},
+	'click i.fa.fa-arrow-circle-o-left.arrow_left': function (event){
+		Session.set('page_number', (Session.get('page_number') - 1 ) % Session.get('page_count'));
 	}
 });
 
