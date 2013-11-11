@@ -522,10 +522,13 @@ body {
 								cursor default 
 							}
 						}
-						&:hover {
+						&:hover, &.active {
 							background fuiorange
 							color white
 							cursor pointer
+						}
+						&.active {
+							background fuiamethyst
 						}
 					}
 				}
@@ -688,12 +691,14 @@ body {
 					border-bottom 1px solid white
 					border-radius(0 6px 0 0)
 				}
-				p.title {
-					font-size: 15px;
+				input.title {
+					font-size: 14px;
 					margin 0 0 1px -29px 
-					padding: 4px;
+					padding: 3px;
 					border: 1px dashed fuisilver;
 					color fuisilver
+					width 194px
+					height 31px
 				}
 				ul.curves {
 					padding 2px 9px

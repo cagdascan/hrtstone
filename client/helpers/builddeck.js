@@ -22,7 +22,9 @@ Template.builddeck.events({
 		$( '.filter3 ul.classes li').removeClass('active');
 		$(event.currentTarget).addClass('active');
 		Session.set('neutral_selected', false);
-		
+	},
+	'click .filter2 ul li': function (event){
+		$(event.currentTarget).toggleClass('active');
 	}
 });
 
