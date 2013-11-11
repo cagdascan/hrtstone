@@ -823,23 +823,45 @@ body {
 					}
 					#done {
 						font-family font_standart !important
-						.modal-header {
+						.modal-content {
 							background fuipreclouds
-							border-radius(6px 6px 0 0) 
-							overflow hidden
-							.modal-title {
-								font-family font_standart !important
-								width 60%
-								font-size 20px
-								height 40px
+							.modal-header {
+								border-radius(6px 6px 0 0) 
+								overflow hidden
+								border none
+								.modal-title {
+									font-family font_standart !important
+									width 60%
+									font-size 20px
+									height 40px
+								}
 							}
-						}
-						.modal-body {
-							padding 15px
-							textarea {
-								resize vertical
-								font-size 16px
-								font-family font_standart !important
+							.modal-body {
+								padding 15px
+								textarea {
+									resize vertical
+									font-size 16px
+									font-family font_standart !important
+								}
+							}
+							.modal-footer {
+								margin 0
+								padding 15px
+								border none
+							}
+							.btn {
+								border none !important
+								&.btn-cancel {
+									background white !important
+									color fuiconcrete
+								}
+								&.btn-save {
+									background fuiemerald
+									color white
+									&:hover {
+										background fuinephritis
+									}
+								}
 							}
 						}
 					}
