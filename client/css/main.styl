@@ -656,8 +656,8 @@ body {
 						font-size 15px
 						font-family font_standart !important
 						span {
-							background url(/img/mana.png) no-repeat
-							background-size 100%
+							background url(/img/mana.png) no-repeat 0 0
+							background-size 200%
 							width 40px
 							height 35px
 							float left
@@ -669,11 +669,12 @@ body {
 							font-size 18px
 						}
 						&:hover, &.active {
-							background fuiorange
 							cursor pointer
 						}
 						&.active {
-							background fuisunflower
+							span {
+								background-position -40px 0
+							}
 						}
 					}
 
@@ -728,7 +729,7 @@ body {
 						.mana {
 							span {
 								background url(/img/mana.png) no-repeat
-								background-size 100%
+								background-size 200%
 								width 18px
 								height 16px
 								line-height 16px
@@ -765,8 +766,8 @@ body {
 							background rgba(0,0,0,0.1)
 						}
 						span.mana {
-							background url(/img/mana.png) no-repeat
-							background-size 100%
+							background url(/img/mana.png) -26px 0 no-repeat
+							background-size 200%
 							width 26px
 							height 24px
 							line-height 24px
