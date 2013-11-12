@@ -54,6 +54,7 @@
 					<i class="fa fa-arrow-circle-o-left arrow_left"></i>
 					<i class="fa fa-arrow-circle-o-right arrow_right"></i>
 				</ul>
+				{{#constant}}
 				<ul class="manas">
 					<li class="active"><span>All</span></li>
 					<li><span>0</span></li>
@@ -65,6 +66,7 @@
 					<li><span>6</span></li>
 					<li><span>7+</span></li>
 				</ul>
+				{{/constant}}
 			</div>
 			<div class="col-md-2 filter4">
 				<div class="image">
@@ -157,7 +159,7 @@
 					<span class="selection_process">
 						{{current_card_count_in_deck}}/30
 					</span>
-					<span class="btn btn-default btn-done" data-toggle="modal" data-target="#done" >Done</span>
+					<span class="btn btn-default btn-done {{disabled}}" data-toggle="modal" data-target="#done" >Done</span>
 					<!-- Modal -->
 					<div class="modal fade" id="done" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					  <div class="modal-dialog">
@@ -172,6 +174,19 @@
 					      <div class="modal-footer">
 					        <button type="button" class="btn btn-lg btn-cancel" data-dismiss="modal">Close</button>
 					        <button type="button" class="btn btn-lg btn-save">Save</button>
+					      </div>
+					    </div><!-- /.modal-content -->
+					  </div><!-- /.modal-dialog -->
+					</div><!-- /.modal -->
+					<div class="modal fade" id="delete_current_deck" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-body">
+					      	<div class="alert alert-danger">You haven't finished building your deck! <strong>Your cards will be lost. </strong>Do you wish to continue?
+					      	<button type="button" class="btn btn-xs btn-success pull-right" id="delete_deck">Continue</button>
+					      	<button type="button" class="btn btn-xs btn-danger pull-right" id="cancel_delete_deck">Cancel</button>
+					        
+						      </div>
 					      </div>
 					    </div><!-- /.modal-content -->
 					  </div><!-- /.modal-dialog -->

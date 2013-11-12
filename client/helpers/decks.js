@@ -12,18 +12,12 @@ Template.decks.selected_class = function () {
 };
 
 Template.decks.events({
-	'click .decks-top .selectclass ul li a': function (x) {
-		var x = x.currentTarget;
-		var y = $(x).html();
-		Session.set('selected_class', y);
-		console.log(Session.get('selected_class'));
+	'click .decks-top .selectclass ul li a': function (event) {
+		Session.set('selected_class', $(event.currentTarget).html());
 	},
-	'click .decks-top .toplatest .btn-group .btn': function (x) {
+	'click .decks-top .toplatest .btn-group .btn': function (event) {
 		$('.decks-top .toplatest .btn-group .btn').removeClass('active');
-		var x = x.currentTarget;
-		var y = $(x).text();
-		Session.set('toplatest', y);
-		$(x).addClass('active');
-		console.log(Session.get('toplatest'));
+		Session.set('toplatest', $(event.currentTarget).text());
+		$(event.currentTarget).addClass('active');
 	}
 });

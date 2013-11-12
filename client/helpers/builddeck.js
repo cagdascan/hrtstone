@@ -1,12 +1,60 @@
 Template.builddeck.events({
 	'click ul#classes li': function (event) {
 		var selected_class = $(event.currentTarget).attr('id');
+		var target = event.currentTarget;
+		Session.set('selected_class_id', selected_class);
+		// Session.set('selected_target', target);
+		if (Deck.find({}).count() > 0){
+			$('#delete_current_deck').modal({
+		  	keyboard: false,
+		  	backdrop: 'static'
+			});
+			// $('#delete_current_deck').on('hidden.bs.modal', function () {
+			// 	Session.set('neutral_selected', false);
+			// 	Session.set('class', selected_class);
+			// 	Session.set('cost', 'All');
+			// 	$( '.filter1 ul#classes li').removeClass('active');
+			// 	$(target).addClass('active');
+			// 	Session.set('page_number', 0);
+			// });
+		}
+		else{
+			Session.set('neutral_selected', false);
+			Session.set('class', selected_class);
+			Session.set('cost', 'All');
+			$( '.filter1 ul#classes li').removeClass('active');
+			$(target).addClass('active');
+			Session.set('page_number', 0);
+		}
+	},
+	'click button#delete_deck': function (event) {
+		// var target = Session.get('selected_target');
+		$('#delete_current_deck').modal('hide');
 		Session.set('neutral_selected', false);
-		Session.set('class', selected_class);
+		Session.set('class', Session.get('selected_class_id'));
 		Session.set('cost', 'All');
 		$( '.filter1 ul#classes li').removeClass('active');
-		$(event.currentTarget).addClass('active');
+		var selected_class = Session.get('class');	
+      $("li[data-value='" + selected_class + "']").addClass('active');
+
+		// $(target).addClass('active');
 		Session.set('page_number', 0);
+		Deck.remove({});
+	},
+	'click button#cancel_delete_deck': function (event) {
+		// console.log('pressed');
+		// var target = Session.get('selected_target');
+		$('#delete_current_deck').modal('toggle');
+		// $('#delete_current_deck').on('hidden.bs.modal', function () {
+		// 	Session.set('neutral_selected', false);
+		// 	Session.set('class', Session.get('selected_class_id'));
+		// 	Session.set('cost', 'All');
+		// 	$( '.filter1 ul#classes li').removeClass('active');
+		// 	// $(target).addClass('active');
+		// 	Session.set('page_number', 0);
+		// 	Deck.remove({});
+		// });
+
 	},
 	'click ul.manas li': function (event) {
 		var selected_cost = $(event.currentTarget).text();
@@ -70,6 +118,16 @@ Template.builddeck.helpers({
 			total = total + i.count;
 		});
 		return total;
+	},
+	disabled: function () {
+		var total = 0;
+		Deck.find({}).fetch().forEach(function(i){
+			total = total + i.count;
+		});
+		if (total == 30)
+			return '';
+		else
+			return 'disabled';
 	},
 	height_0: function () {
 		var total_0 = 0;
@@ -620,6 +678,7 @@ Template.builddeck.rendered = function () {
 			$(this).text(placeholder);
 		}
 	});
+
 	//********* Arrow show or hide based on page count *****///////
 	if (Session.get('page_number') == 0)
 		$('.arrow_left').hide();
@@ -642,5 +701,14 @@ Template.currentdeck.helpers({
 			return true;
 		else
 			return false;
+	}
+});
+
+Template.builddeck.events({
+	'click .cardlist li': function () {
+			if (this.count == 2)
+				Deck.update({_id:this._id}, {$set:{'count': 1}});
+			else
+				Deck.remove({_id:this._id});
 	}
 });
