@@ -1,0 +1,11 @@
+<template name="currentdeck">
+	<ul class="cardlist">
+	{{#each card}}
+		<li>
+			<span class="mana">{{cost}}</span>
+			<span class="name">{{name}}</span>
+			<span class="count">{{count}}</spamn>
+		</li>
+	{{/each}}
+	</ul>
+</template>
