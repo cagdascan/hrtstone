@@ -4,7 +4,11 @@
 		<li>
 			<span class="mana">{{cost}}</span>
 			<span class="name">{{name}}</span>
-			<span class="count">{{count}}</spamn>
+			{{#if more_than_one}}
+			<span class="count">
+				{{count}}
+			</span>
+			{{/if}}
 		</li>
 	{{/each}}
 	</ul>
