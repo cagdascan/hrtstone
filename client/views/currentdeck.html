@@ -1,7 +1,8 @@
 <template name="currentdeck">
 	<ul class="cardlist">
 	{{#each card}}
-		<li>
+		<li style="background: url(http://s3.amazonaws.com/hearthstoner/cards/{{cardid}}.jpg) no-repeat; background-position:90px -40px;background-size:70%;">
+			<div style="background:url(/img/cardlist-layer.png) no-repeat;position:relative;z-index:20;height:24px">
 			<span class="mana">{{cost}}</span>
 			<span class="name">{{name}}</span>
 			{{#if more_than_one}}
@@ -9,6 +10,7 @@
 				{{count}}
 			</span>
 			{{/if}}
+			</div>
 		</li>
 	{{/each}}
 	</ul>

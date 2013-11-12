@@ -641,35 +641,42 @@ body {
 						height 60px
 						text-align center
 						line-height 60px
-						background fuisilver url(/img/classes256.png) no-repeat 0 0;
-						background-size 100%
 						margin-bottom 1px
-						&#Druid {
+						background fuipreclouds
+						span {
+							background url(/img/classes256.png) no-repeat 0 0;
+							background-size 100%
+							width 50px
+							height 50px
+							margin 5px
+							display inline-block						
+						}
+						&#Druid span {
 							background-position 0 0
 						}
-						&#Hunter {
-							background-position 0 -60px
+						&#Hunter span {
+							background-position 0 -50px
 						}
-						&#Mage {
-							background-position 0 -120px
+						&#Mage span {
+							background-position 0 -100px
 						}
-						&#Paladin {
-							background-position 0 -180px
+						&#Paladin span {
+							background-position 0 -150px
 						}
-						&#Priest {
-							background-position 0 -240px
+						&#Priest span {
+							background-position 0 -200px
 						}
-						&#Rogue {
+						&#Rogue span {
+							background-position 0 -250px
+						}
+						&#Shaman span {
 							background-position 0 -300px
 						}
-						&#Shaman {
-							background-position 0 -360px
+						&#Warlock span {
+							background-position 0 -350px
 						}
-						&#Warlock {
-							background-position 0 -420px
-						}
-						&#Warrior {
-							background-position 0 -480px
+						&#Warrior span {
+							background-position 0 -400px
 						}
 						&:hover, &.active {
 							background-color fuiorange
@@ -807,6 +814,9 @@ body {
 							width 100%
 							height 235px
 						}
+						&:hover {
+							cursor pointer
+						}
 					}
 					.arrow_left, .arrow_right {
 						position absolute
@@ -838,7 +848,6 @@ body {
 						height 46px
 						float left
 						line-height 27px
-						border-right 1px solid white
 						padding 5px 6px
 						text-align center
 						font-size 15px
@@ -870,11 +879,40 @@ body {
 			}
 			.filter4 {
 				.image {
-					background #ccc url(http://eu.battle.net/hearthstone/static/images/media/artwork/artwork3-small.jpg?v=58-5)
+					background url(/img/heroes.png) 0 0
+					background-size 100%
 					margin-left -29px
-					height 90px
+					margin-top -35px
+					height 60px
 					border-bottom 1px solid white
-					border-radius(0 6px 0 0)
+					border-radius(6px 6px 0 0)
+					&.Druid {
+						background-position 0 0px
+					}
+					&.Hunter {
+						background-position 0 -60px
+					}
+					&.Mage {
+						background-position 0 -120px
+					}
+					&.Paladin {
+						background-position 0 -180px
+					}
+					&.Priest {
+						background-position 0 -240px
+					}
+					&.Rogue {
+						background-position 0 -300px
+					}
+					&.Shaman {
+						background-position 0 -360px
+					}
+					&.Warlock {
+						background-position 0 -420px
+					}
+					&.Warrior {
+						background-position 0 -480px
+					}
 				}
 				input.title {
 					font-size: 14px;
@@ -886,23 +924,17 @@ body {
 					height 31px
 				}
 				ul.curves {
-					padding 2px 9px
+					padding 7px 9px
 					background fuipreclouds
 					margin 0
-					height 160px
+					height 138px
 					list-style-type none
 					margin-left -29px
 					li {
 							width 12.5%
 							padding-right 1px
 							float left
-							.number {
-									text-align center
-									font-size 12px
-									color fuiwetasphalt
-									line-height 25px
-									font-weight 600
-							}
+							
 							.bar {
 									height 100px
 									background white
@@ -913,23 +945,32 @@ body {
 											bottom 0
 											width 100%
 											background fuiorange
-											height 40px
+											.number {
+												top -20px
+												position absolute
+												text-align center
+												font-size 12px
+												color fuiwetasphalt
+												line-height 20px
+												font-weight 600
+												width 100%
+											}
 									}
 							}
 							.mana {
-									span {
-											background url(/img/mana.png) no-repeat
-											background-size 200%
-											width 18px
-											height 16px
-											line-height 16px
-											margin 2px
-											display block
-											text-align center
-											color white
-											font-size 11px
-											font-weight 600
-									}
+								span {
+									background url(/img/mana.png) no-repeat
+									background-size 200%
+									width 19px
+									height 17px
+									line-height 16px
+									margin 1px
+									display block
+									text-align center
+									color white
+									font-size 10px
+									font-weight 600
+								}
 							}
 							&:nth-child(2n+1) {
 									.bar {
@@ -941,45 +982,56 @@ body {
 				ul.cardlist {
 					margin 1px 0 1px -29px
 					padding 0
-					background fuipreclouds
-					height 219px
+					height 306px
 					list-style-type: none
 					overflow scroll
 					overflow-x hidden
 					li {
+						position relative
 						border-bottom 1px solid white
 						display block
-						height 30px
+						height 25px
 						width 100%
-						padding 3px
-						&:nth-child(2n+2) {
-							background rgba(0,0,0,0.1)
-						}
+						padding 0px
+						z-index -1
 						span.mana {
-							background url(/img/mana.png) -26px 0 no-repeat
+							background url(/img/mana.png) -23px 0 no-repeat
 							background-size 200%
-							width 26px
-							height 24px
-							line-height 24px
+							width 23px
+							height 20px
+							line-height 19px
+							margin-top 2px
 							float left
 							color white
 							text-align center
-
+							font-size 12px
  						}
 						span.name {
 							float left
 							margin 0 6px
-							height 24px
-							line-height 24px
+							margin-top 2px
+							height 20px
+							line-height 19px
+							font-size 12px
 						}
 						span.count {
 							float right
-							height 24px
-							line-height 24px
-							background fuisilver
-							padding 0 2px
+							margin-top 4px
+							height 16px
+							line-height 16px
+							background white
+							padding 0 4px
 							border-radius(4px)
-							color white
+							color fuiwetasphalt
+							font-size 12px
+						}
+						.bgimage {
+							background-position 0px 0px
+							position absolute
+							z-index 10
+						}
+						&:hover {
+							cursor pointer
 						}
 					}
 				}
