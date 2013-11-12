@@ -184,9 +184,9 @@ Template.builddeck.helpers({
 				total_0 >= total_3 && total_0 >= total_4 && 
 				total_0 >= total_5 && total_0 >= total_6 && 
 				total_0 >= total_7)
-			return 100;
+			return 80;
 		else
-			return total_0 / max * 100;
+			return total_0 / max * 80;
 	},
 	mana_count_0: function () {
 		var total = 0;
@@ -250,9 +250,9 @@ Template.builddeck.helpers({
 				total_1 >= total_3 && total_1 >= total_4 && 
 				total_1 >= total_5 && total_1 >= total_6 && 
 				total_1 >= total_7)
-			return 100;
+			return 80;
 		else
-			return total_1 / max * 100;
+			return total_1 / max * 80;
 	},
 	mana_count_1: function () {
 		var total = 0;
@@ -316,9 +316,9 @@ Template.builddeck.helpers({
 			  total_2 >= total_3 && total_2 >= total_4 && 
 			  total_2 >= total_5 && total_2 >= total_6 && 
 			  total_2 >= total_7)
-			return 100;
+			return 80;
 		else
-			return total_2 / max * 100;
+			return total_2 / max * 80;
 	},
 	mana_count_2: function () {
 		var total = 0;
@@ -382,9 +382,9 @@ Template.builddeck.helpers({
 			  total_3 >= total_2 && total_3 >= total_4 && 
 			  total_3 >= total_5 && total_3 >= total_6 && 
 			  total_3 >= total_7)
-			return 100;
+			return 80;
 		else
-			return total_3 / max * 100;
+			return total_3 / max * 80;
 	},
 	mana_count_3: function () {
 		var total = 0;
@@ -448,9 +448,9 @@ Template.builddeck.helpers({
 			  total_4 >= total_2 && total_4 >= total_3 && 
 			  total_4 >= total_5 && total_4 >= total_6 && 
 			  total_4 >= total_7)
-			return 100;
+			return 80;
 		else
-			return total_4 / max * 100;
+			return total_4 / max * 80;
 	},
 	mana_count_4: function () {
 		var total = 0;
@@ -514,9 +514,9 @@ Template.builddeck.helpers({
 			  total_5 >= total_2 && total_5 >= total_3 && 
 			  total_5 >= total_4 && total_5 >= total_6 && 
 			  total_5 >= total_7)
-			return 100;
+			return 80;
 		else
-			return total_5 / max * 100;
+			return total_5 / max * 80;
 	},
 	mana_count_5: function () {
 		var total = 0;
@@ -580,9 +580,9 @@ Template.builddeck.helpers({
 			  total_6 >= total_2 && total_6 >= total_3 && 
 			  total_6 >= total_4 && total_6 >= total_5 && 
 			  total_6 >= total_7)
-			return 100;
+			return 80;
 		else
-			return total_6 / max * 100;
+			return total_6 / max * 80;
 	},
 	mana_count_6: function () {
 		var total = 0;
@@ -646,9 +646,9 @@ Template.builddeck.helpers({
 			  total_7 >= total_2 && total_7 >= total_3 && 
 			  total_7 >= total_4 && total_7 >= total_5 && 
 			  total_7 >= total_6)
-			return 100;
+			return 80;
 		else
-			return total_7 / max * 100;
+			return total_7 / max * 80;
 	},
 	mana_count_7: function () {
 		var total = 0;

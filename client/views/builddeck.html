@@ -4,15 +4,15 @@
 			<div class="col-md-1 filter1">
 				{{#constant}}
 				<ul id="classes">
-					<li id="Druid" class="active"></li>
-					<li id="Hunter"></li>
-					<li id="Mage"></li>
-					<li id="Paladin"></li>
-					<li id="Priest"></li>
-					<li id="Rogue"></li>
-					<li id="Shaman"></li>
-					<li id="Warlock"></li>
-					<li id="Warrior"></li>
+					<li id="Druid" class="active"><span></span></li>
+					<li id="Hunter"><span></span></li>
+					<li id="Mage"><span></span></li>
+					<li id="Paladin"><span></span></li>
+					<li id="Priest"><span></span></li>
+					<li id="Rogue"><span></span></li>
+					<li id="Shaman"><span></span></li>
+					<li id="Warlock"><span></span></li>
+					<li id="Warrior"><span></span></li>
 				</ul>
 				{{/constant}}
 			</div>
@@ -45,7 +45,7 @@
 						{{selected_class_tab}}
 					</li>
 					<li id="neutral">
-						<span class="image neutral"></span>
+						<span class="image Neutral"></span>
 						Neutral
 					</li>
 				</ul>
@@ -69,14 +69,14 @@
 				{{/constant}}
 			</div>
 			<div class="col-md-2 filter4">
-				<div class="image">
+				<div class="image {{selected_class_tab}}">
 				</div>
 				<input type="text" class="form-control title" placeholder="Give a name to your deck">
 				<ul class="curves">
 					<li>
-						<div class="number">{{mana_count_0}}</div>
 						<div class="bar">
 							<div class="actual" style="height: {{height_0}}%;">
+								<div class="number">{{mana_count_0}}</div>
 							</div>
 						</div>
 						<div class="mana">
@@ -84,9 +84,10 @@
 						</div>
 					</li>
 					<li>
-						<div class="number">{{mana_count_1}}</div>
+						
 						<div class="bar">
 							<div class="actual" style="height: {{height_1}}%;">
+								<div class="number">{{mana_count_1}}</div>
 							</div>
 						</div>
 						<div class="mana">
@@ -94,9 +95,10 @@
 						</div>
 					</li>
 					<li>
-						<div class="number">{{mana_count_2}}</div>
+						
 						<div class="bar">
 							<div class="actual" style="height: {{height_2}}%;">
+								<div class="number">{{mana_count_2}}</div>
 							</div>
 						</div>
 						<div class="mana">
@@ -104,9 +106,10 @@
 						</div>
 					</li>
 					<li>
-						<div class="number">{{mana_count_3}}</div>
+						
 						<div class="bar">
 							<div class="actual" style="height: {{height_3}}%;">
+								<div class="number">{{mana_count_3}}</div>
 							</div>
 						</div>
 						<div class="mana">
@@ -114,9 +117,10 @@
 						</div>
 					</li>
 					<li>
-						<div class="number">{{mana_count_4}}</div>
+						
 						<div class="bar">
 							<div class="actual" style="height: {{height_4}}%;">
+								<div class="number">{{mana_count_4}}</div>
 							</div>
 						</div>
 						<div class="mana">
@@ -124,19 +128,22 @@
 						</div>
 					</li>
 					<li>
-						<div class="number">{{mana_count_5}}</div>
+						
 						<div class="bar">
 							<div class="actual" style="height: {{height_5}}%;">
+								<div class="number">{{mana_count_5}}</div>
 							</div>
+
 						</div>
 						<div class="mana">
 							<span>5</span>
 						</div>
 					</li>
 					<li>
-						<div class="number">{{mana_count_6}}</div>
+						
 						<div class="bar">
 							<div class="actual" style="height: {{height_6}}%;">
+								<div class="number">{{mana_count_6}}</div>
 							</div>
 						</div>
 						<div class="mana">
@@ -144,9 +151,10 @@
 						</div>
 					</li>
 					<li>
-						<div class="number">{{mana_count_7}}</div>
+						
 						<div class="bar">
 							<div class="actual" style="height: {{height_7}}%;">
+								<div class="number">{{mana_count_7}}</div>
 							</div>
 						</div>
 						<div class="mana">
