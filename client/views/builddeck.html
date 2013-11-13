@@ -73,8 +73,8 @@
 			<div class="col-md-2 filter4">
 				<div class="image {{selected_class_tab}}">
 				</div>
-				<input type="text" class="form-control title" placeholder="Give a name to your deck">
 				{{#isolate}}
+				<input type="text" class="form-control title" placeholder="Deck Name">
 				<ul class="curves">
 					<li>
 						<div class="bar">
@@ -195,17 +195,18 @@
 					  </div><!-- /.modal-dialog -->
 					</div><!-- /.modal -->
 					<div class="modal fade" id="delete_current_deck" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-					  <div class="modal-dialog">
-					    <div class="modal-content">
-					      <div class="modal-body">
-					      	<div class="alert alert-danger">You haven't finished building your deck! <strong>Your cards will be lost. </strong>Do you wish to continue?
-					      	<button type="button" class="btn btn-xs btn-success pull-right" id="delete_deck">Continue</button>
-					      	<button type="button" class="btn btn-xs btn-danger pull-right" id="cancel_delete_deck">Cancel</button>
-					        
-						      </div>
-					      </div>
-					    </div><!-- /.modal-content -->
-					  </div><!-- /.modal-dialog -->
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-body">
+									You haven't finished building your deck! <strong>Your cards will be lost.</strong><br>Do you wish to continue?
+					      		</div>
+					    		<div class="modal-footer">
+					    			<button type="button" class="btn btn-danger" id="cancel_delete_deck">Cancel</button>
+									<button type="button" class="btn btn-success" id="delete_deck">Continue</button>
+									
+								</div>
+							</div><!-- /.modal-content -->
+						</div><!-- /.modal-dialog -->
 					</div><!-- /.modal -->
 				</div>
 			</div>
