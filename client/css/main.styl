@@ -589,9 +589,6 @@ body {
 					height 36px
 					width 100%
 					padding 3px
-					&:nth-child(2n+2) {
-
-					}
 					span.mana {
 						background url(/img/mana.png) -30px 0 no-repeat
 						background-size 200%
@@ -602,14 +599,14 @@ body {
 						color white
 						text-align center
 						margin 2px
-
- 					}
+	 				}
 					span.name {
 						float left
 						margin 0 6px
 						height 30px
 						line-height 30px
 						font-size 18px
+						
 					}
 					span.count {
 						float right
@@ -993,42 +990,43 @@ body {
 						height 25px
 						width 100%
 						padding 0px
-						z-index -1
-						span.mana {
-							background url(/img/mana.png) -23px 0 no-repeat
-							background-size 200%
-							width 23px
-							height 20px
-							line-height 19px
-							margin-top 2px
-							float left
-							color white
-							text-align center
-							font-size 12px
- 						}
-						span.name {
-							float left
-							margin 0 6px
-							margin-top 2px
-							height 20px
-							line-height 19px
-							font-size 12px
-						}
-						span.count {
-							float right
-							margin-top 4px
-							height 16px
-							line-height 16px
-							background white
-							padding 0 4px
-							border-radius(4px)
-							color fuiwetasphalt
-							font-size 12px
-						}
-						.bgimage {
-							background-position 0px 0px
-							position absolute
-							z-index 10
+						z-index 1
+						.container {
+							background:url(/img/cardlist-layer.png) no-repeat;
+							position:relative;
+							z-index:20;
+							height:24px
+							padding 0 0 0 2px
+							span.mana {
+								background url(/img/mana.png) -23px 0 no-repeat
+								background-size 200%
+								width 23px
+								height 20px
+								line-height 19px
+								margin-top 2px
+								float left
+								color white
+								text-align center
+								font-size 12px
+	 						}
+							span.name {
+								float left
+								margin 0 6px
+								margin-top 2px
+								height 20px
+								line-height 19px
+								font-size 12px
+								text-shadow 1px 1px white
+							}
+							span.count {
+								float right
+								height 24px
+								line-height 24px
+								background fuipumpkin
+								padding 0 4px
+								color white
+								font-size 12px
+							}
 						}
 						&:hover {
 							cursor pointer

@@ -705,7 +705,7 @@ Template.currentdeck.helpers({
 });
 
 Template.builddeck.events({
-	'click .cardlist li': function () {
+	'click .filter4 .cardlist li': function () {
 			if (this.count == 2)
 				Deck.update({_id:this._id}, {$set:{'count': 1}});
 			else
