@@ -1,9 +1,9 @@
 Template.builddeck.events({
+	///******* Left class navigation ********/////
 	'click ul#classes li': function (event) {
 		var selected_class = $(event.currentTarget).attr('id');
 		var target = event.currentTarget;
 		Session.set('selected_class_id', selected_class);
-		// Session.set('selected_target', target);
 		if (Deck.find({}).count() > 0){
 			$('#delete_current_deck').modal({
 		  	keyboard: false,
@@ -23,24 +23,29 @@ Template.builddeck.events({
 			Session.set('class', selected_class);
 			Session.set('cost', 'All');
 			$( '.filter1 ul#classes li').removeClass('active');
+			$( '.filter3 ul.manas li').removeClass('active');
+			$( '#all').addClass('active');
 			$(target).addClass('active');
 			Session.set('page_number', 0);
 		}
 	},
+	///*** Confirming delete deck button when changing class ***///
 	'click button#delete_deck': function (event) {
-		// var target = Session.get('selected_target');
 		$('#delete_current_deck').modal('hide');
 		Session.set('neutral_selected', false);
 		Session.set('class', Session.get('selected_class_id'));
 		Session.set('cost', 'All');
 		$( '.filter1 ul#classes li').removeClass('active');
+		$( '.filter3 ul.manas li').removeClass('active');
+			$( '#all').addClass('active');
 		var selected_class = Session.get('class');	
-      $("li[data-value='" + selected_class + "']").addClass('active');
+      $("li[class ='" + selected_class + "']").addClass('active');
 
 		// $(target).addClass('active');
 		Session.set('page_number', 0);
 		Deck.remove({});
 	},
+	/// **** Canceling class navigation and continuing your deck building **** //
 	'click button#cancel_delete_deck': function (event) {
 		// console.log('pressed');
 		// var target = Session.get('selected_target');
@@ -56,6 +61,7 @@ Template.builddeck.events({
 		// });
 
 	},
+	///*************** Mana filtering **************** ///
 	'click ul.manas li': function (event) {
 		var selected_cost = $(event.currentTarget).text();
 		Session.set('cost', selected_cost);
@@ -63,33 +69,46 @@ Template.builddeck.events({
 		$(event.currentTarget).addClass('active');
 		Session.set('page_number', 0);
 	},
+	///*** Top class and neutral navigation ********* ////
 	'click .filter3 ul.classes li#neutral': function (event) {
 		$( '.filter3 ul.classes li').removeClass('active');
 		$(event.currentTarget).addClass('active');
 		Session.set('neutral_selected', true);
 		Session.set('page_number', 0);
 	},
+	///*** Top class and neutral navigation *************///
 	'click .filter3 ul.classes li#notneutral': function (event){
 		$( '.filter3 ul.classes li').removeClass('active');
 		$(event.currentTarget).addClass('active');
 		Session.set('neutral_selected', false);
 		Session.set('page_number', 0);
 	},
+	///****** Navigate cards with right arrow **********///
 	'click i.fa.fa-arrow-circle-o-right.arrow_right': function (event){
 		Session.set('page_number', (Session.get('page_number') + 1 ) % Session.get('page_count'));
 	},
+	///****** Navigate cards with left arrow **************///
 	'click i.fa.fa-arrow-circle-o-left.arrow_left': function (event){
 		Session.set('page_number', (Session.get('page_number') - 1 ) % Session.get('page_count'));
 	},
+	///****** Filter cards with left abilities navigation *******///
 	'click .filter2 ul li': function (event){
 		$(event.currentTarget).toggleClass('active');
 	},
+	///******* Remove cards from your current deck **********///
+	'click .filter4 .cardlist li': function () {
+			if (this.count == 2)
+				Deck.update({_id:this._id}, {$set:{'count': 1}});
+			else
+				Deck.remove({_id:this._id});
+	},
+	///******* Adding cards to your current deck *************///
 	'click ul.cards li': function (event){
 		var total = 0;
 		Deck.find({}).fetch().forEach(function(i){
 			total = total + i.count;
 		});
-		if (total < 30){
+		if (total < 30){ // add upto 30 cards
 			if (this.rarity != 'legendary'){ // allow upto 2 card if not legendary
 				if (Deck.find({'cardid': this.cardid}).count() == 1)
 					Deck.update({'cardid': this.cardid}, {$set:{'cardid': this.cardid, 'name':this.name, 'cost':this.cost, 'count': 2}})
@@ -128,6 +147,18 @@ Template.builddeck.helpers({
 			return '';
 		else
 			return 'disabled';
+	},
+	not_neutral_active: function () {
+		if (Session.get('neutral_selected') == true)
+			return '';
+		else
+			return 'active';
+	},
+	neutral_active: function () {
+		if (Session.get('neutral_selected') == true)
+			return 'active';
+		else
+			return '';
 	},
 	height_0: function () {
 		var total_0 = 0;
@@ -664,7 +695,8 @@ Template.builddeck.helpers({
 			total = total + i.count;
 		});
 		return total;
-	},
+	}
+
 });
 
 Template.builddeck.rendered = function () {
@@ -679,7 +711,7 @@ Template.builddeck.rendered = function () {
 		}
 	});
 
-	//********* Arrow show or hide based on page count *****///////
+	///********* Arrow show or hide based on page count *****///
 	if (Session.get('page_number') == 0)
 		$('.arrow_left').hide();
 	else
@@ -689,7 +721,6 @@ Template.builddeck.rendered = function () {
 		$('.arrow_right').hide();
 	else
 		$('.arrow_right').show();
-	///////////////////////////////////////////////////////////////
 };
 
 Template.currentdeck.helpers({
@@ -701,14 +732,5 @@ Template.currentdeck.helpers({
 			return true;
 		else
 			return false;
-	}
-});
-
-Template.builddeck.events({
-	'click .filter4 .cardlist li': function () {
-			if (this.count == 2)
-				Deck.update({_id:this._id}, {$set:{'count': 1}});
-			else
-				Deck.remove({_id:this._id});
 	}
 });

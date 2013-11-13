@@ -40,23 +40,25 @@
 			</div>
 			<div class="col-md-8 filter3">
 				<ul class="classes">
-					<li id="notneutral" class="active">
+					<li id="notneutral" class="{{not_neutral_active}}">
 						<span class="image {{selected_class_tab}}"></span>
 						{{selected_class_tab}}
 					</li>
-					<li id="neutral">
+					<li id="neutral" class="{{neutral_active}}">
 						<span class="image Neutral"></span>
 						Neutral
 					</li>
 				</ul>
 				<ul class="cards">
+					{{#isolate}}
 					{{> cards}}
+					{{/isolate}}
 					<i class="fa fa-arrow-circle-o-left arrow_left"></i>
 					<i class="fa fa-arrow-circle-o-right arrow_right"></i>
 				</ul>
-				{{#constant}}
 				<ul class="manas">
-					<li class="active"><span>All</span></li>
+					{{#constant}}
+					<li class="active" id="all"><span>All</span></li>
 					<li><span>0</span></li>
 					<li><span>1</span></li>
 					<li><span>2</span></li>
@@ -65,13 +67,14 @@
 					<li><span>5</span></li>
 					<li><span>6</span></li>
 					<li><span>7+</span></li>
+					{{/constant}}
 				</ul>
-				{{/constant}}
 			</div>
 			<div class="col-md-2 filter4">
 				<div class="image {{selected_class_tab}}">
 				</div>
 				<input type="text" class="form-control title" placeholder="Give a name to your deck">
+				{{#isolate}}
 				<ul class="curves">
 					<li>
 						<div class="bar">
@@ -162,10 +165,15 @@
 						</div>
 					</li>
 				</ul>
+				{{/isolate}}
+				{{#isolate}}
 				{{> currentdeck}}
+				{{/isolate}}
 				<div class="submit_deck">
 					<span class="selection_process">
+						{{#isolate}}
 						{{current_card_count_in_deck}}/30
+						{{/isolate}}
 					</span>
 					<span class="btn btn-default btn-done {{disabled}}" data-toggle="modal" data-target="#done" >Done</span>
 					<!-- Modal -->

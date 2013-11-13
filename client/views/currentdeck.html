@@ -1,4 +1,5 @@
 <template name="currentdeck">
+	{{#isolate}}
 	<ul class="cardlist">
 	{{#each card}}
 		<li style="background: url(http://s3.amazonaws.com/hearthstoner/cards/{{cardid}}.jpg) no-repeat 80px -35px;background-size:67%;">
@@ -14,4 +15,5 @@
 		</li>
 	{{/each}}
 	</ul>
+	{{/isolate}}
 </template>

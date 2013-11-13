@@ -13,9 +13,7 @@ if (Meteor.isClient){
     }
     card_query = card_query();
 
-    Meteor.subscribe('cards01', card_query, function(){
-      Session.set('cards_subscription_ready', true);
-    });
+    Meteor.subscribe('cards01', card_query);
   });
 
 	Template.cards.cards = function() {
