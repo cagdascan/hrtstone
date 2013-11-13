@@ -2,19 +2,17 @@
 	<div class="container builddeck">
 		<div class="row">
 			<div class="col-md-1 filter1">
-				{{#constant}}
 				<ul id="classes">
-					<li id="Druid" class="active"><span></span></li>
-					<li id="Hunter"><span></span></li>
-					<li id="Mage"><span></span></li>
-					<li id="Paladin"><span></span></li>
-					<li id="Priest"><span></span></li>
-					<li id="Rogue"><span></span></li>
-					<li id="Shaman"><span></span></li>
-					<li id="Warlock"><span></span></li>
-					<li id="Warrior"><span></span></li>
+					<li id="Druid" class="{{druid_class_active}}"><span></span></li>
+					<li id="Hunter" class="{{hunter_class_active}}"><span></span></li>
+					<li id="Mage" class="{{mage_class_active}}"><span></span></li>
+					<li id="Paladin" class="{{paladin_class_active}}"><span></span></li>
+					<li id="Priest" class="{{priest_class_active}}"><span></span></li>
+					<li id="Rogue" class="{{rouge_class_active}}"><span></span></li>
+					<li id="Shaman" class="{{shaman_class_active}}"><span></span></li>
+					<li id="Warlock" class="{{warlock_class_active}}"><span></span></li>
+					<li id="Warrior" class="{{warrior_class_active}}"><span></span></li>
 				</ul>
-				{{/constant}}
 			</div>
 			<div class="col-md-1 filter2">
 				<ul>
