@@ -9,23 +9,13 @@ Template.builddeck.events({
 		  	keyboard: false,
 		  	backdrop: 'static'
 			});
-			// $('#delete_current_deck').on('hidden.bs.modal', function () {
-			// 	Session.set('neutral_selected', false);
-			// 	Session.set('class', selected_class);
-			// 	Session.set('cost', 'All');
-			// 	$( '.filter1 ul#classes li').removeClass('active');
-			// 	$(target).addClass('active');
-			// 	Session.set('page_number', 0);
-			// });
 		}
 		else{
 			Session.set('neutral_selected', false);
 			Session.set('class', selected_class);
 			Session.set('cost', 'All');
-			$( '.filter1 ul#classes li').removeClass('active');
-			$( '.filter3 ul.manas li').removeClass('active');
-			$( '#all').addClass('active');
-			$(target).addClass('active');
+			$('.filter3 ul.manas li').removeClass('active');
+			$('#all').addClass('active');
 			Session.set('page_number', 0);
 		}
 	},
@@ -35,31 +25,15 @@ Template.builddeck.events({
 		Session.set('neutral_selected', false);
 		Session.set('class', Session.get('selected_class_id'));
 		Session.set('cost', 'All');
-		$( '.filter1 ul#classes li').removeClass('active');
-		$( '.filter3 ul.manas li').removeClass('active');
-			$( '#all').addClass('active');
-		var selected_class = Session.get('class');	
-      $("li[class ='" + selected_class + "']").addClass('active');
-
-		// $(target).addClass('active');
+		$('.filter1 ul#classes li').removeClass('active');
+		$('.filter3 ul.manas li').removeClass('active');
+		$('#all').addClass('active');
 		Session.set('page_number', 0);
-		Deck.remove({});
+		Deck.remove({}); // delete your current deck
 	},
 	/// **** Canceling class navigation and continuing your deck building **** //
 	'click button#cancel_delete_deck': function (event) {
-		// console.log('pressed');
-		// var target = Session.get('selected_target');
 		$('#delete_current_deck').modal('toggle');
-		// $('#delete_current_deck').on('hidden.bs.modal', function () {
-		// 	Session.set('neutral_selected', false);
-		// 	Session.set('class', Session.get('selected_class_id'));
-		// 	Session.set('cost', 'All');
-		// 	$( '.filter1 ul#classes li').removeClass('active');
-		// 	// $(target).addClass('active');
-		// 	Session.set('page_number', 0);
-		// 	Deck.remove({});
-		// });
-
 	},
 	///*************** Mana filtering **************** ///
 	'click ul.manas li': function (event) {
@@ -71,15 +45,11 @@ Template.builddeck.events({
 	},
 	///*** Top class and neutral navigation ********* ////
 	'click .filter3 ul.classes li#neutral': function (event) {
-		$( '.filter3 ul.classes li').removeClass('active');
-		$(event.currentTarget).addClass('active');
 		Session.set('neutral_selected', true);
 		Session.set('page_number', 0);
 	},
 	///*** Top class and neutral navigation *************///
 	'click .filter3 ul.classes li#notneutral': function (event){
-		$( '.filter3 ul.classes li').removeClass('active');
-		$(event.currentTarget).addClass('active');
 		Session.set('neutral_selected', false);
 		Session.set('page_number', 0);
 	},
@@ -156,6 +126,60 @@ Template.builddeck.helpers({
 	},
 	neutral_active: function () {
 		if (Session.get('neutral_selected') == true)
+			return 'active';
+		else
+			return '';
+	},
+	druid_class_active: function () {
+		if (Session.get('class') == "Druid")
+			return 'active';
+		else
+			return '';
+	},
+	hunter_class_active: function () {
+		if (Session.get('class') == "Hunter")
+			return 'active';
+		else
+			return '';
+	},
+	mage_class_active: function () {
+		if (Session.get('class') == "Mage")
+			return 'active';
+		else
+			return '';
+	},
+	paladin_class_active: function () {
+		if (Session.get('class') == "Paladin")
+			return 'active';
+		else
+			return '';
+	},
+	priest_class_active: function () {
+		if (Session.get('class') == "Priest")
+			return 'active';
+		else
+			return '';
+	},
+	rouge_class_active: function () {
+		if (Session.get('class') == "Rouge")
+			return 'active';
+		else
+			return '';
+	},
+	shaman_class_active: function () {
+		if (Session.get('class') == "Shaman")
+			return 'active';
+		else
+			return '';
+	},
+	warlock_class_active: function () {
+		if (Session.get('class') == "Warlock")
+			return 'active';
+		else
+			return '';
+	},
+	warrior_class_active: function () {
+		if (Session.get('class') == "Warrior")
 			return 'active';
 		else
 			return '';
