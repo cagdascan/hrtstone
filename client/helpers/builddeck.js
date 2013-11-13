@@ -54,11 +54,11 @@ Template.builddeck.events({
 		Session.set('page_number', 0);
 	},
 	///****** Navigate cards with right arrow **********///
-	'click i.fa.fa-arrow-circle-o-right.arrow_right': function (event){
+	'click i.fa.fa-chevron-circle-right.arrow_right': function (event){
 		Session.set('page_number', (Session.get('page_number') + 1 ) % Session.get('page_count'));
 	},
 	///****** Navigate cards with left arrow **************///
-	'click i.fa.fa-arrow-circle-o-left.arrow_left': function (event){
+	'click i.fa.fa-chevron-circle-left.arrow_left': function (event){
 		Session.set('page_number', (Session.get('page_number') - 1 ) % Session.get('page_count'));
 	},
 	///****** Filter cards with left abilities navigation *******///
