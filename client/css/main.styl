@@ -838,22 +838,22 @@ body {
 					background fuipreclouds
 					margin-left -29px
 					height 46px
-					padding 0
+					padding 5px
 					
 					li {
-						width 54px
-						height 46px
+						width 44px
+						height 41px
 						float left
 						line-height 27px
-						padding 5px 6px
+
 						text-align center
 						font-size 15px
 						font-family font_standart !important
 						span {
 							background url(/img/mana.png) no-repeat 0 0
-							background-size 200%
+							background-size 300%
 							width 40px
-							height 35px
+							height 36px
 							float left
 							text-align center
 							color white
@@ -864,10 +864,13 @@ body {
 						}
 						&:hover, &.active {
 							cursor pointer
+							span {
+								background-position -40px 0
+							}
 						}
 						&.active {
 							span {
-								background-position -40px 0
+								background-position -80px 0
 							}
 						}
 					}
@@ -915,10 +918,19 @@ body {
 					font-size: 14px;
 					margin 0 0 1px -29px 
 					padding: 3px;
-					border: 1px dashed fuisilver;
 					color fuisilver
 					width 194px
 					height 31px
+					margin-left: -29px;
+					background: black;
+					color: white;
+					font-weight: 600;
+					padding: 3px 8px;
+					line-height: 26px;
+					font-size: 18px;
+					text-align: center
+					border-radius(0)
+					border none
 				}
 				ul.curves {
 					padding 7px 9px
@@ -957,7 +969,7 @@ body {
 							.mana {
 								span {
 									background url(/img/mana.png) no-repeat
-									background-size 200%
+									background-size 300%
 									width 19px
 									height 17px
 									line-height 16px
@@ -998,8 +1010,8 @@ body {
 							height:24px
 							padding 0 0 0 2px
 							span.mana {
-								background url(/img/mana.png) -23px 0 no-repeat
-								background-size 200%
+								background url(/img/mana.png) -46px 0 no-repeat
+								background-size 300%
 								width 23px
 								height 20px
 								line-height 19px
@@ -1039,6 +1051,13 @@ body {
 					height 46px
 					border-radius(0 0 6px 0)
 					padding 6px
+					.fade {
+						-webkit-transition: opacity 0.10s linear;
+						-moz-transition: opacity 0.10s linear;
+						-ms-transition: opacity 0.10s linear;
+						-o-transition: opacity 0.10s linear;
+						transition: opacity 0.10s linear;
+					}
 					.selection_process {
 						float left
 						line-height 34px
@@ -1061,44 +1080,68 @@ body {
 					}
 					#done {
 						font-family font_standart !important
-						.modal-content {
-							background fuipreclouds
-							.modal-header {
-								border-radius(6px 6px 0 0) 
-								overflow hidden
-								border none
-								.modal-title {
-									font-family font_standart !important
-									width 60%
-									font-size 20px
-									height 40px
-								}
-							}
-							.modal-body {
-								padding 15px
-								textarea {
-									resize vertical
-									font-size 16px
-									font-family font_standart !important
-								}
-							}
-							.modal-footer {
-								margin 0
-								padding 15px
-								border none
-							}
-							.btn {
-								border none !important
-								&.btn-cancel {
-									background white !important
-									color fuiconcrete
-								}
-								&.btn-save {
-									background fuiemerald
-									color white
-									&:hover {
-										background fuinephritis
+						.modal-dialog {
+							margin-top 10%
+							.modal-content {
+								background fuipreclouds
+								.modal-header {
+									border-radius(6px 6px 0 0) 
+									overflow hidden
+									border none
+									.modal-title {
+										font-family font_standart !important
+										width 60%
+										font-size 20px
+										height 40px
 									}
+								}
+								.modal-body {
+									padding 0 15px
+									textarea {
+										resize vertical
+										font-size 16px
+										font-family font_standart !important
+									}
+								}
+								.modal-footer {
+									margin 0
+									padding 15px
+									border none
+								}
+								.btn {
+									border none !important
+									&.btn-cancel {
+										background white !important
+										color fuiconcrete
+									}
+									&.btn-save {
+										background fuiemerald
+										color white
+										&:hover {
+											background fuinephritis
+										}
+									}
+								}
+							}
+						}
+					}
+					#delete_current_deck {
+						.modal-dialog {
+							margin-top 10%
+							.modal-content {
+								.modal-body {
+									padding 20px 25px 0
+									font-size 17px
+									text-align center
+								}
+								.modal-footer {
+									margin 0
+									padding 15px
+									border none
+									text-align center
+								}
+								.btn {
+									border none !important
 								}
 							}
 						}
