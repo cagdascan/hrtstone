@@ -8,4 +8,3 @@ Session.set('selected_class', 'All Classes');
 
 Deck = new Meteor.Collection(null); //local collection for deck building
 
-Order = [1,2,3,4,5];
