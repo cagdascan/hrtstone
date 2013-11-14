@@ -1,9 +1,9 @@
 Template.builddeck.events({
 	///******* Left class navigation ********/////
 	'click ul#classes li': function (event) {
-		// var selected_class = $(event.currentTarget).attr('id');
-		// var target = event.currentTarget;
-		// Session.set('selected_class_id', selected_class);
+		var selected_class = $(event.currentTarget).attr('id');
+		var target = event.currentTarget;
+		Session.set('selected_class_id', selected_class);
 		if (Deck.find({}).count() > 0){
 			$('#delete_current_deck').modal({
 		  	keyboard: false,
