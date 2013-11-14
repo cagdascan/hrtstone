@@ -1,9 +1,5 @@
 {
-  "meteor": {
-    "git": "https://github.com/meteor/meteor.git",
-    "branch": "master",
-    "commit": "86a52e61428f5dcd9e75eb1de0e303caf0c26a22"
-  },
+  "meteor": {},
   "dependencies": {
     "basePackages": {
       "urlify2": {},
@@ -19,11 +15,6 @@
         "git": "https://github.com/peerlibrary/meteor-urlify2.git",
         "tag": "v0.1.1",
         "commit": "5b6677b01382e470bd22e6a4a8a0d4399d7900d7"
-      },
-      "bootstrap-3": {
-        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v0.3.6",
-        "commit": "711dbcabe333c8714298b2fd1de97fdcdae6efa7"
       },
       "font-awesome-4": {
         "git": "https://github.com/michaelbishop/meteor-font-awesome-4.git",

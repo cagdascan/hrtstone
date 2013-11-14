@@ -161,6 +161,7 @@ body {
 						box-shadow none !important
 						line-height 30px
 						padding 8px 10px 7px
+						text-align left
 					}
 					span.caret {
 						margin-top 12px
@@ -169,16 +170,57 @@ body {
 					ul {
 						width 100%
 						border none !important
-						background fuiwisteria
+						background fuiwetasphalt
 						padding 4px
 						li a {
 							color white
-							padding 5px 12px
-							font-size 16px
+							padding 5px 7px
+							font-size 15px
+							line-height 25px
 							border-radius(4px)
 							&:hover {
 								background fuiorange
 								cursor pointer
+							}
+							span {
+								float left
+								height 25px
+								width 25px
+								margin-right 6px
+								background url(/img/classes256.png) no-repeat
+								background-position 0 0
+								border 0px solid white
+								background-size 100%
+								&.Druid {
+									background-position 0 0
+								}
+								&.Hunter {
+									background-position 0 -25px
+								}
+								&.Mage {
+									background-position 0 -50px
+								}
+								&.Paladin {
+									background-position 0 -75px
+								}
+								&.Priest {
+									background-position 0 -100px
+								}
+								&.Rouge {
+									background-position 0 -125px
+								}
+								&.Shaman {
+									background-position 0 -150px
+								}
+								&.Warlock {
+									background-position 0 -175px
+								}
+								&.Warrior {
+									background-position 0 -200px
+								}
+								&.All.Classes {
+									background-position 0 -225px
+								}
 							}
 						}
 					}
@@ -194,48 +236,44 @@ body {
 					}
 				}
 
-				.btn-group .btn span span {
+				.btn-group .btn span.defselection {
 					height 30px
 					width 30px
-					background white
-					display inline-block
 					margin-right 6px
 					background url(/img/classes256.png) no-repeat
 					background-position 0 0
 					border 0px solid white
-					border-radius(3px)					
 					background-size 100%
-					vertical-align top
-					&.all {
+					&.Druid {
 						background-position 0 0
 					}
-					&.druid {
+					&.Hunter {
 						background-position 0 -30px
 					}
-					&.hunter {
+					&.Mage {
 						background-position 0 -60px
 					}
-					&.mage {
-						background-position 0 -75px
+					&.Paladin {
+						background-position 0 -90px
 					}
-					&.paladin {
-						background-position 0 -100px
+					&.Priest {
+						background-position 0 -120px
 					}
-					&.priest {
-						background-position 0 -125px
-					}
-					&.rogue {
+					&.Rogue {
 						background-position 0 -150px
 					}
-					&.shaman {
-						background-position 0 -175px
+					&.Shaman {
+						background-position 0 -180px
 					}
-					&.warlock {
-						background-position 0 -200px
+					&.Warlock {
+						background-position 0 -210px
 					}
-					&.warrior {
-						background-position 0 -225px
-					}	
+					&.Warrior {
+						background-position 0 -240px
+					}
+					&.All.Classes {
+						background-position 0 -270px
+					}
 				}		
 			}
 		}
@@ -385,6 +423,31 @@ body {
 					.count {
 						color fuiorange
 					}
+				}
+			}
+		}
+		.column2 {
+			font-family font_standart
+
+
+			.comeon {
+				background url(/img/hearthstone-artwork-01.jpg) no-repeat
+				background-size 100%				
+				text-align left
+				border-radius(6px)
+				padding 20px
+				.btn-build {
+					background fuinephritis
+					color white
+					&:hover {
+						background fuiemerald
+					}
+				}
+				h3 {
+					font-family font_standart
+					color white
+					font-size 24px !important
+					text-shadow 0 -1px rgba(0,0,0,0.6)
 				}
 			}
 		}
@@ -807,6 +870,7 @@ body {
 						width 25%
 						padding 0px
 						height auto
+						position relative
 						img {
 							display block
 							width 100%
@@ -814,6 +878,18 @@ body {
 						}
 						&:hover {
 							cursor pointer
+						}
+						i {
+							position absolute
+							top 70px
+							left 28px
+							width 120px
+							height 120px
+							line-height 80px
+							text-align center
+							z-index 100
+							font-size 120px
+							color rgba(0,0,0,0.7)
 						}
 					}
 					.arrow_left, .arrow_right {
@@ -1004,7 +1080,7 @@ body {
 						width 100%
 						padding 0px
 						z-index 1
-						.container {
+						.cards_container {
 							background:url(/img/cardlist-layer.png) no-repeat;
 							position:relative;
 							z-index:20;
