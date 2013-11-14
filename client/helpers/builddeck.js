@@ -125,12 +125,15 @@ Template.builddeck.events({
 	                'decklist'    : decklist,
 	                'timestamp'   : new Date(),
 	                'comments'    : [],
-	                'upvotes'     : []
+	                'upvotes'     : [],
+	                'upvotes_count': 0,
+	                'comments_count': 0
 	               });
 
-		Deck.remove(); //clear local deck
-		$('#done').modal('hide'); //hide the modal
-		Meteor.Router.to('decks'); //route to decks page
+		Deck.remove({}); //clear local deck
+		$('#done').modal('toggle'); //hide the modal
+		$('body').removeClass('modal-open');
+		Meteor.Router.to('/decks/latest'); //route to decks latest page
 	}
 });
 
@@ -197,8 +200,8 @@ Template.builddeck.helpers({
 		else
 			return '';
 	},
-	rouge_class_active: function () {
-		if (Session.get('class') == "Rouge")
+	rogue_class_active: function () {
+		if (Session.get('class') == "Rogue")
 			return 'active';
 		else
 			return '';
@@ -757,21 +760,9 @@ Template.builddeck.helpers({
 		});
 		return total;
 	}
-
 });
 
 Template.builddeck.rendered = function () {
-	// var placeholder = "Give a name to your deck"; //Change this to your placeholder text
-	// $("#Modal-Name").focus(function() {
-	// 	if ($(this).text() == placeholder) {
-	// 		$(this).text("");
-	// 	}
-	// }).focusout(function() {
-	// 	if (!$(this).text().length) {
-	// 		$(this).text(placeholder);
-	// 	}
-	// });
-
 	///********* Arrow show or hide based on page count *****///
 	if (Session.get('page_number') == 0)
 		$('.arrow_left').hide();

@@ -3,6 +3,9 @@ Session.set('cost', 'All');
 Session.set('neutral_selected', false);
 Session.set('page_number', 0);
 Session.set('page_count', 1);
+Session.set('deck_sort', 'top');
+Session.set('selected_class', 'All Classes');
 
 Deck = new Meteor.Collection(null); //local collection for deck building
 
+Order = [1,2,3,4,5];

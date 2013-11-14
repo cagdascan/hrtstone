@@ -1,12 +1,3 @@
-Template.decks.rendered = function () {
-	if (Session.get('selected_class') === undefined) {
-		Session.set('selected_class','All Classes')
-	}
-	if (Session.get('toplatest') === undefined) {
-		Session.set('toplatest','Top');
-	}
-};
-
 Template.decks.selected_class = function () {
 	return Session.get('selected_class');
 };
@@ -14,10 +5,20 @@ Template.decks.selected_class = function () {
 Template.decks.events({
 	'click .decks-top .selectclass ul li a': function (event) {
 		Session.set('selected_class', $(event.currentTarget).text());
+	}
+});
+
+Template.decks.helpers({
+	top_active: function () {
+		if (Session.get('deck_sort') == 'top')
+			return 'active';
+		else
+			return '';
 	},
-	'click .decks-top .toplatest .btn-group .btn': function (event) {
-		$('.decks-top .toplatest .btn-group .btn').removeClass('active');
-		Session.set('toplatest', $(event.currentTarget).text());
-		$(event.currentTarget).addClass('active');
+	latest_active: function () {
+		if (Session.get('deck_sort') == 'latest')
+			return 'active';
+		else
+			return '';
 	}
 });
