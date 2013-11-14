@@ -123,33 +123,33 @@ body {
 		}
 	}
 	.decks {
-		.toplatest {
-			.btn {
-				border none
-				background fuipreclouds
-				color fuiwetasphalt
-				text-shadow none
-				line-height 25px
-				// height 56px
-
-
-				&:active, &.active, &:hover {
+		.decks-top {
+			margin-bottom 0px
+			.toplatest {
+				.btn {
 					border none
-					background fuiamethyst
-					color white
+					background fuipreclouds
+					color fuiwetasphalt
 					text-shadow none
-					box-shadow none
-				}
-				&:hover {
-					background fuiorange
-				}
-				&.active:hover {
-					background fuiamethyst
+					line-height 25px
+					// height 56px
+
+
+					&:active, &.active, &:hover {
+						border none
+						background fuiamethyst
+						color white
+						text-shadow none
+						box-shadow none
+					}
+					&:hover {
+						background fuiorange
+					}
+					&.active:hover {
+						background fuiamethyst
+					}
 				}
 			}
-		}
-		.decks-top {
-			margin-bottom 20px
 			.selectclass {
 				.btn-group {
 					width 100%
@@ -265,8 +265,8 @@ body {
 			margin 0
 			.unit {
 				border-bottom 1px solid fuisilver
-				padding 10px 15px
-				line-height 62px
+				padding 5px 15px
+				line-height 58px
 				font-size 21px
 				color fuiwetasphalt
 
@@ -274,22 +274,25 @@ body {
 					font-weight 300
 					span {
 						color fuiasbestos
-						font-size 30px
+						font-size 21px
 						vertical-align middle
-						display inline
-						line-height 30px
+						display block
+						line-height 58px
 					}
 				}
 				&.upvote {
-
+					padding 12px 0
 					i {
 						padding 7px 8px
 						background fuisilver
 						color white
 						font-size 30px
+						width 44px
+						height 44px
+
 						border-radius(100%)
 						vertical-align middle
-						display inline
+						display block
 						&:hover {
 							background fuiemerald
 							cursor pointer
@@ -300,8 +303,8 @@ body {
 
 					h2 {
 						font-weight 600
-						font-size 28px
-						margin 0 0 4px
+						font-size 23px
+						margin 0 0 0px
 						padding 0
 						line-height 34px
 						font-family font_standart !important
@@ -346,14 +349,15 @@ body {
 				background fuipreclouds
 			}
 		}
-		.hsclass span, .selectclass ul li a span {
-			width 36px
-			height 36px
+		.hsclass span {
+			width 44px
+			height 44px
 			background white
-			display inline-block
+			display block
 			margin-right 6px
 			vertical-align middle
-			background black url(/img/classes.png) no-repeat
+			background url(/img/classes256.png) no-repeat
+			background-size 100%
 			background-position 0 0
 			border 0px solid white
 			border-radius(3px)
@@ -361,31 +365,31 @@ body {
 				background-position 0 0
 			}
 			&.druid {
-				background-position 0 -36px
+				background-position 0 -44px
 			}
 			&.hunter {
-				background-position 0 -72px
+				background-position 0 -88px
 			}
 			&.mage {
-				background-position 0 -108px
+				background-position 0 -132px
 			}
 			&.paladin {
-				background-position 0 -144px
+				background-position 0 -176px
 			}
 			&.priest {
-				background-position 0 -180px
+				background-position 0 -220px
 			}
 			&.rouge {
-				background-position 0 -216px
+				background-position 0 -264px
 			}
 			&.shaman {
-				background-position 0 -252px
+				background-position 0 -308px
 			}
 			&.warlock {
-				background-position 0 -288px
+				background-position 0 -352px
 			}
 			&.warrior {
-				background-position 0 -324px
+				background-position 0 -396px
 			}							
 		}		
 	}
