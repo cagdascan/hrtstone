@@ -1,38 +1,45 @@
 <template name="decks">																						
 	<div class="container decks">
-		<div class="row decks-top">
-			<div class="col-md-7 toplatest">
-				<div class="btn-group btn-group-lg">
-					<button type="button" class="btn active">Top</button>
-					<button type="button" class="btn">Latest</button>
-				</div>
-			</div>
-			{{#isolate}}
-				<div class="col-md-3 selectclass">
-					<div class="btn-group">
-					  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown">
-					    <span class="defselection pull-left">{{{selected_class}}</span>
-					    <span class="caret pull-right"></span>
-					  </button>
-					  <ul class="dropdown-menu" role="menu">
-						<li><a><span class="all"></span>All Classes</a></li>
-						<li><a><span class="druid"></span>Druid</a></li>
-						<li><a><span class="hunter"></span>Hunter</a></li>
-						<li><a><span class="mage"></span>Mage</a></li>
-						<li><a><span class="paladin"></span>Paladin</a></li>
-						<li><a><span class="priest"></span>Priest</a></li>
-						<li><a><span class="rogue"></span>Rogue</a></li>
-						<li><a><span class="shaman"></span>Shaman</a></li>
-						<li><a><span class="warlock"></span>Warlock</a></li>
-						<li><a><span class="warrior"></span>Warrior</a></li>
-					  </ul>
+		<div class="row">
+			<div class="col-md-8 col-sm-12 col-xs-12">
+				<div class="row decks-top" >
+					<div class="col-md-9 toplatest">
+						<div class="btn-group btn-group-lg">
+							<button type="button" class="btn active">Top</button>
+							<button type="button" class="btn">Latest</button>
+						</div>
 					</div>
+					{{#isolate}}
+						<div class="col-md-3 selectclass">
+							<div class="btn-group">
+							  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown">
+							    <span class="defselection pull-left">{{{selected_class}}</span>
+							    <span class="caret pull-right"></span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu">
+								<li><a><span class="all"></span>All Classes</a></li>
+								<li><a><span class="druid"></span>Druid</a></li>
+								<li><a><span class="hunter"></span>Hunter</a></li>
+								<li><a><span class="mage"></span>Mage</a></li>
+								<li><a><span class="paladin"></span>Paladin</a></li>
+								<li><a><span class="priest"></span>Priest</a></li>
+								<li><a><span class="rogue"></span>Rogue</a></li>
+								<li><a><span class="shaman"></span>Shaman</a></li>
+								<li><a><span class="warlock"></span>Warlock</a></li>
+								<li><a><span class="warrior"></span>Warrior</a></li>
+							  </ul>
+							</div>
+						</div>
+					{{/isolate}}
 				</div>
-			{{/isolate}}
+				{{> decklist}}
+			</div>
+			<div class="col-md-4 hidden-xs hidden-sm">
+				<div style="background:#ccc"> fdgdgdfgdfgfdgd
+				</div>
 			<div class="col-md-2" style="text-align:right;">
 				<a href="/build-deck" class="btn btn-build btn-lg" style="width:100%;">Build Deck</a>
 			</div>
 		</div>
-		{{> decklist}}
 	</div>
 </template>

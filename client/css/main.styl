@@ -124,7 +124,7 @@ body {
 	}
 	.decks {
 		.decks-top {
-			margin-bottom 0px
+			margin-bottom 15px
 			.toplatest {
 				.btn {
 					border none
@@ -159,7 +159,8 @@ body {
 						background fuiamethyst
 						color white
 						box-shadow none !important
-						line-height 25px
+						line-height 30px
+						padding 8px 10px 7px
 					}
 					span.caret {
 						margin-top 12px
@@ -194,12 +195,12 @@ body {
 				}
 
 				.btn-group .btn span span {
-					height 25px
-					width 25px
+					height 30px
+					width 30px
 					background white
 					display inline-block
 					margin-right 6px
-					background black url(/img/classes.png) no-repeat
+					background url(/img/classes256.png) no-repeat
 					background-position 0 0
 					border 0px solid white
 					border-radius(3px)					
@@ -209,10 +210,10 @@ body {
 						background-position 0 0
 					}
 					&.druid {
-						background-position 0 -25px
+						background-position 0 -30px
 					}
 					&.hunter {
-						background-position 0 -50px
+						background-position 0 -60px
 					}
 					&.mage {
 						background-position 0 -75px
@@ -237,161 +238,156 @@ body {
 					}	
 				}		
 			}
-			.btn-build {
-					background fuiemerald
-					color white
-					border none
-					line-height 25px
-				&:hover {
-					background fuinephritis
-					color white
-					border none
-				}
-			}
 		}
 		.decklist {
-			&.head .unit {
-				line-height 30px
-				font-size 17px
-				text-transform uppercase
-				&.comments {
-					i {
-						height: 30px;
-						display: block;
-						font-size: 30px;
-					}
-				}				
-			}
-			margin 0
+			background fuipreclouds
+			margin 0 0 1px
 			.unit {
-				border-bottom 1px solid fuisilver
-				padding 5px 15px
-				line-height 58px
-				font-size 21px
-				color fuiwetasphalt
-
-				&.order {
-					font-weight 300
-					span {
-						color fuiasbestos
-						font-size 21px
-						vertical-align middle
-						display block
-						line-height 58px
-					}
+				height 64px
+				line-height 64px
+			}
+			.order {
+				padding-right 0
+				padding-left 0
+				background fuipeterriver
+				text-align center
+				font-size 30px
+				font-weight 300
+				color white
+				a {
+					color white
+					display block
+					width 100%
 				}
-				&.upvote {
-					padding 12px 0
-					i {
-						padding 7px 8px
-						background fuisilver
-						color white
-						font-size 30px
-						width 44px
-						height 44px
-
-						border-radius(100%)
-						vertical-align middle
-						display block
-						&:hover {
-							background fuiemerald
-							cursor pointer
-						}
-					}
-				}
-				&.name {
-
-					h2 {
-						font-weight 600
-						font-size 23px
-						margin 0 0 0px
-						padding 0
-						line-height 34px
-						font-family font_standart !important
-						display block
-						width 100%
-						a {
-							color fuimidnightblue
-							&:hover {
-								color fuipeterriver
-							}
-						}
-					}
-					.uname {
-						line-height 24px
-						display block
-						font-size 14px
-						span {
-							color fuiasbestos
-							font-weight 300
-						}
-						a {
-							margin 0 10px 0 0
-							line-height 24px
-							float left
-							color fuiwetasphalt
-							font-size 14px
-							img {
-								width 24px
-								height 24px
-								float left
-								margin-right 6px
-								border-radius(100%)
-							}
-							&:hover {
-								color fuipeterriver
-							}
-						}
-					}
+				&:hover {
+					background fuibelizehole		
 				}
 			}
-			&:nth-child(2n+1) {
-				background fuipreclouds
+			.upvote {
+				background rgba(0,0,0,0.1)
+				color fuiasbestos
+				i {
+					display block
+					text-align center
+					font-size 50px
+					margin-top -6px
+				}
+				div {
+					height 30px
+					text-align center
+					margin-top -10px
+					font-size 17px
+					line-height 20px
+				}
+				&:hover {
+					background fuiemerald
+					color white
+					cursor pointer
+				} 
+			}
+			.name {
+				color fuiwetasphalt
+				padding 5px 15px
+				a.name1 {
+					font-weight 600
+					line-height 30px
+					font-size 21px
+					display block
+					color fuiwetasphalt
+					&:hover {
+						color fuipeterriver
+					}
+				}
+				.name2 {
+					line-height 20px
+					display block
+					a {
+						color fuiwetasphalt
+						img {
+							width 20px
+							height 20px
+							border-radius(100%)
+							margin-right 4px
+
+						}
+						&:hover {
+							color fuipeterriver
+						}					
+					}
+					span {
+						font-weight 300
+						color fuiasbestos
+						margin-left 4px
+					}
+
+				}
+			}
+			.classes {
+				font-size 24px
+				span {
+					width 40px
+					height 40px
+					background url(/img/classes256.png) no-repeat 0 0
+					background-size 100%
+					vertical-align middle
+					float left
+					margin 12px 6px 0 0
+				}
+				.Druid {
+					background-position 0 -0px
+				}
+				.Hunter {
+					background-position 0 -40px
+				}
+				.Mage {
+					background-position 0 -80px
+				}
+				.Paladin {
+					background-position 0 -120px
+				}
+				.Priest {
+					background-position 0 -160px
+				}
+				.Rouge {
+					background-position 0 -200px
+				}
+				.Shaman {
+					background-position 0 -240px
+				}
+				.Warlock {
+					background-position 0 -280px
+				}
+				.Warrior {
+					background-position 0 -320px
+				}
+			}
+			a.comments {
+				position relative
+				padding 0
+				text-align center
+				background fuisunflower
+				i {
+					color white
+					font-size 44px
+					margin-top 8px
+				}
+				.count {
+					position absolute
+					top -3px
+					width 100%
+					font-size 15px
+					font-weight 600
+					color fuisunflower
+				}
+				&:hover {
+					background fuiorange
+
+					.count {
+						color fuiorange
+					}
+				}
 			}
 		}
-		.hsclass span {
-			width 44px
-			height 44px
-			background white
-			display block
-			margin-right 6px
-			vertical-align middle
-			background url(/img/classes256.png) no-repeat
-			background-size 100%
-			background-position 0 0
-			border 0px solid white
-			border-radius(3px)
-			&.all {
-				background-position 0 0
-			}
-			&.druid {
-				background-position 0 -44px
-			}
-			&.hunter {
-				background-position 0 -88px
-			}
-			&.mage {
-				background-position 0 -132px
-			}
-			&.paladin {
-				background-position 0 -176px
-			}
-			&.priest {
-				background-position 0 -220px
-			}
-			&.rouge {
-				background-position 0 -264px
-			}
-			&.shaman {
-				background-position 0 -308px
-			}
-			&.warlock {
-				background-position 0 -352px
-			}
-			&.warrior {
-				background-position 0 -396px
-			}							
-		}		
 	}
 	.singledeck {
 		.section1 {

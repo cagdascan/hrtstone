@@ -1,6 +1,6 @@
 Meteor.Router.add({
 	'/'								 	 : 'decks',
-	'/deck/miracle-rouge': 'singledeck',
+	'/deck/miracle-rogue': 'singledeck',
 	'/build-deck'				 : function(){
 													Session.set('class', 'Druid');
 													return 'builddeck';
