@@ -4,6 +4,8 @@
     "bootstrap-3": {},
     "font-awesome-4": {},
     "accounts-ui-bootstrap-3": {},
-    "router": {}
+    "router": {},
+    "gravatar": {},
+    "timeago": {}
   }
 }

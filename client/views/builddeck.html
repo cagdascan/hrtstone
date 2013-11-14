@@ -72,7 +72,7 @@
 				<div class="image {{selected_class_tab}}">
 				</div>
 				{{#isolate}}
-				<input type="text" class="form-control title" placeholder="Deck Name">
+				<input type="text" id="deck_name" class="form-control title" placeholder="Deck Name">
 				<ul class="curves">
 					<li>
 						<div class="bar">
@@ -174,24 +174,26 @@
 						{{/isolate}}
 					</span>
 					<span class="btn btn-default btn-done {{disabled}}" data-toggle="modal" data-target="#done" >Done</span>
-					<!-- Modal -->
+					<!-- Save your Deck Modal -->
 					<div class="modal fade" id="done" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 					  <div class="modal-dialog">
 					    <div class="modal-content">
 					      <div class="modal-header">
 					        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					        <input type="text" class="form-control modal-title" placeholder="Give a name to your deck">
+					        <input type="text" id="deck_name_in_modal" class="form-control modal-title" placeholder="Enter deck name">
 					      </div>
 					      <div class="modal-body" >
-					       	<textarea class="form-control" placeholder="Type a description for the deck" rows="3"></textarea>
+					       	<textarea class="form-control" id="desc_in_modal" placeholder="Type a description for the deck" rows="3"></textarea>
 					      </div>
 					      <div class="modal-footer">
 					        <button type="button" class="btn btn-cancel" data-dismiss="modal">Close</button>
-					        <button type="button" class="btn btn-save">Save</button>
+					        <button type="button" class="btn btn-save" id="save">Save</button>
 					      </div>
 					    </div><!-- /.modal-content -->
 					  </div><!-- /.modal-dialog -->
 					</div><!-- /.modal -->
+
+					<!-- Warning Model -->
 					<div class="modal fade" id="delete_current_deck" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 						<div class="modal-dialog">
 							<div class="modal-content">
@@ -201,7 +203,6 @@
 					    		<div class="modal-footer">
 					    			<button type="button" class="btn btn-danger" id="cancel_delete_deck">Cancel</button>
 									<button type="button" class="btn btn-success" id="delete_deck">Continue</button>
-									
 								</div>
 							</div><!-- /.modal-content -->
 						</div><!-- /.modal-dialog -->

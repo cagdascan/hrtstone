@@ -96,6 +96,41 @@ Template.builddeck.events({
 		}
 		else
 			return;
+	},
+	///*** Done button opens save model or login dropdown *****///
+	'click span.btn.btn-default.btn-done': function (event) {
+		if (Meteor.user() == null){
+			event.stopPropagation();
+			$('.dropdown-toggle').dropdown('toggle');
+		}
+		else{
+			$('#done').modal('show');
+			var deck_name = $('#deck_name').val();
+			$('#deck_name_in_modal').val(deck_name);
+		}
+	},
+	'click #save': function (event) {
+
+		var gravatar_url = Gravatar.imageUrl(Meteor.user().emails[0].address);
+		var deckname = $('#deck_name_in_modal').val();
+		var description = $('#desc_in_modal').val();
+		var decklist = Deck.find().fetch();
+
+		Decks.insert({'userid'      : Meteor.userId(),
+									'username'    : Meteor.user().username,
+									'userpicture' : gravatar_url,
+	                'deckname'    : deckname, 
+	                'description' : description,
+	                'class'       : Session.get('class'),
+	                'decklist'    : decklist,
+	                'timestamp'   : new Date(),
+	                'comments'    : [],
+	                'upvotes'     : []
+	               });
+
+		Deck.remove(); //clear local deck
+		$('#done').modal('hide'); //hide the modal
+		Meteor.Router.to('decks'); //route to decks page
 	}
 });
 
@@ -115,7 +150,7 @@ Template.builddeck.helpers({
 		Deck.find({}).fetch().forEach(function(i){
 			total = total + i.count;
 		});
-		if (total == 30)
+		if (total == 4)
 			return '';
 		else
 			return 'disabled';
@@ -726,16 +761,16 @@ Template.builddeck.helpers({
 });
 
 Template.builddeck.rendered = function () {
-	var placeholder = "Give a name to your deck"; //Change this to your placeholder text
-	$("#Modal-Name").focus(function() {
-		if ($(this).text() == placeholder) {
-			$(this).text("");
-		}
-	}).focusout(function() {
-		if (!$(this).text().length) {
-			$(this).text(placeholder);
-		}
-	});
+	// var placeholder = "Give a name to your deck"; //Change this to your placeholder text
+	// $("#Modal-Name").focus(function() {
+	// 	if ($(this).text() == placeholder) {
+	// 		$(this).text("");
+	// 	}
+	// }).focusout(function() {
+	// 	if (!$(this).text().length) {
+	// 		$(this).text(placeholder);
+	// 	}
+	// });
 
 	///********* Arrow show or hide based on page count *****///
 	if (Session.get('page_number') == 0)

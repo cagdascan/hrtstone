@@ -13,7 +13,7 @@ Template.decks.selected_class = function () {
 
 Template.decks.events({
 	'click .decks-top .selectclass ul li a': function (event) {
-		Session.set('selected_class', $(event.currentTarget).html());
+		Session.set('selected_class', $(event.currentTarget).text());
 	},
 	'click .decks-top .toplatest .btn-group .btn': function (event) {
 		$('.decks-top .toplatest .btn-group .btn').removeClass('active');
