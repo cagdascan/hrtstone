@@ -5,7 +5,10 @@ if (Meteor.isClient){
 
   Deps.autorun(function() { 
     decklist_query = function(){
-      return {};
+      if (Session.get('selected_class') == 'All Classes')
+        return {};
+      else
+        return {'class': Session.get('selected_class')};
     }
     decklist_query = decklist_query();
 
