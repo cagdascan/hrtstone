@@ -773,7 +773,26 @@ Template.builddeck.rendered = function () {
 		$('.arrow_right').hide();
 	else
 		$('.arrow_right').show();
+
+	$.each(document.images, function(){
+		var this_image = this;
+		var src = $(this_image).attr('src') || '' ;
+
+			//this_image.src = options.loading; // show loading
+			var lsrc = $(this_image).attr('lsrc') || '' ;
+			if(lsrc.length > 0){
+				var img = new Image();
+				img.src = lsrc;
+				$(img).load(function() {
+					// $(this_image).attr('src', this.src ) 
+					this_image.src = this.src;
+				});
+			}
+
+	});
 };
+
+
 
 Template.currentdeck.helpers({
 	card: function () {
