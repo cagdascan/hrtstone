@@ -14,15 +14,14 @@ Template.decklist.helpers({
 				return Decks.find({'class': Session.get('selected_class')},
 													{sort: {timestamp: -1}}).fetch();
 		}
-	},
-	order: function () {
-
-		// var array = Decks.find().fetch();
-
-		// var index = _.map(array, function(array, index){ return index; });
-
-		// console.log(index);
-		return 1;
-
 	}
+});
+
+
+Handlebars.registerHelper('key_value', function(context, options) {
+  var result = [];
+  _.each(context, function(value, key, list){
+    result.push({key:key+1, value:value});
+  })
+  return result;
 });

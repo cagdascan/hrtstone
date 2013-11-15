@@ -1,34 +1,34 @@
 <template name="decklist">
-	{{#each decks}}
+	{{#each key_value decks}}
 	<div class="row decklist">
 		
 		<div class="col-md-1 unit order">
-			<a href="">{{order}}
+			<a href="">{{key}}
 			</a>
 		</div>
 			
 		<div class="col-md-1 unit upvote">
 			<i class="fa fa-caret-up"></i>
-			<div>{{upvotes_count}}</div>
+			<div>{{value.upvotes_count}}</div>
 		</div>
 			
 		<div class="col-md-6 unit name">
-			<a href="decklink" class="name1">{{deckname}}
+			<a href="decklink" class="name1">{{value.deckname}}
 			</a>
 			<div class="name2">
-				<a><img src="{{userpicture}}">{{username}}
+				<a><img src="{{value.userpicture}}">{{value.username}}
 				</a>
-				<span>{{timeago timestamp}}</span>
+				<span>{{timeago value.timestamp}}</span>
 			</div>
 		</div>
 			
 		<div class="col-md-3 unit classes">
-			<span class="{{class}}"></span>{{class}}
+			<span class="{{value.class}}"></span>{{value.class}}
 		</div>
 		
 		<a class="col-md-1 unit comments">
 			<i class="fa fa-comment"></i>
-			<div class="count">{{comments_count}}</div>
+			<div class="count">{{value.comments_count}}</div>
 		</a>
 	
 	</div>
