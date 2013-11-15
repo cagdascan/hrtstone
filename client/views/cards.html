@@ -1,5 +1,7 @@
 <template name="cards">
 	{{#each cards}}
-		<li><img lsrc="http://s3.amazonaws.com/hearthstoner/cards/{{this.cardid}}.jpg" src="/img/hearthstone-card-back.png" border="0"/><i class="{{lock}}"></i></li>
+		{{#constant}}
+			<li><img lsrc="http://s3.amazonaws.com/hearthstoner/cards/{{this.cardid}}.jpg" src="/img/hearthstone-card-back.png" border="0"/><i class="{{lock}}"></i></li>
+		{{/constant}}
 	{{/each}}
 </template>
