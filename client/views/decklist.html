@@ -11,10 +11,8 @@
 			<i class="fa fa-caret-up"></i>
 			<div>{{value.upvotes_count}}</div>
 		</div>
-			
 		<div class="col-md-7 unit name">
-			<a href="/deck/miracle-rogue" class="name1">{{value.deckname}}
-			</a>
+			<a href="/deck/miracle-rogue" class="name1">{{shorten value.deckname}}
 			<div class="name2">
 				<a><img src="{{value.userpicture}}">{{value.username}}
 				</a>
@@ -35,7 +33,7 @@
 	{{/each}}
 	<div class="row load_more">
 		<div class="col-md-12">
-			<button href="/" type="button" class="btn btn-lg">Load More</button>
+			<button href="/" type="button" class="btn btn-lg" id="load_more">Load More</button>
 		</div>
 	</div>
 </template>
