@@ -4,8 +4,8 @@ Meteor.publish("cards01", function (card_query){
 });
 
 //*** Decks publication ***///
-Meteor.publish("decks", function (decklist_query, decklist_sort){
-	return Decks.find(decklist_query, {sort:{decklist_sort: -1}});
+Meteor.publish("decks", function (decklist_query, decklist_sort, limit){
+	return Decks.find(decklist_query, {sort: decklist_sort, limit: limit});
 });
 
 //*** Decks allow deny rules ***///
