@@ -5,11 +5,11 @@ Meteor.Router.add({
 													Session.set('class', 'Druid');
 													return 'builddeck';
  												},
- 	'/decks/top'					 : function () {
+ 	'/'					 : function () {
  													Session.set('deck_sort', 'top');
  													return 'decks';
  												 },
- 	'/decks/latest'				 : function () {
+ 	'/latest'				 : function () {
  													Session.set('deck_sort', 'latest');
  													return 'decks';
  												 }

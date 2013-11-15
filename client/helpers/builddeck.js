@@ -133,7 +133,7 @@ Template.builddeck.events({
 		Deck.remove({}); //clear local deck
 		$('#done').modal('toggle'); //hide the modal
 		$('body').removeClass('modal-open');
-		Meteor.Router.to('/decks/latest'); //route to decks latest page
+		Meteor.Router.to('/latest'); //route to decks latest page
 	}
 });
 
