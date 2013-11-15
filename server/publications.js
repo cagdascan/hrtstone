@@ -8,6 +8,23 @@ Meteor.publish("decks", function (decklist_query, decklist_sort, limit){
 	return Decks.find(decklist_query, {sort: decklist_sort, limit: limit});
 });
 
+//*** User list publication ***///
+Meteor.publish("userlists", function (){
+  return Lists.find({'_id': this.userId});
+});
+
+//** Server side methods ***///
+Meteor.methods({
+  upvote_count_updater: function (deckid, upvote){
+    if (upvote == 'upvote'){
+      Decks.update({'_id': deckid}, {$inc:{'upvotes_count': 1}});
+    }
+    else{
+      Decks.update({'_id': deckid}, {$inc:{'upvotes_count': -1}});
+    }
+  }
+});
+
 //*** Decks allow deny rules ***///
 Decks.allow({
   insert: function(userId, doc){
@@ -21,6 +38,20 @@ Decks.allow({
   },
   update: function(userId, doc, fieldNames, modifier) {
     return false;
+  },
+  remove: function(userid, doc){
+    return false;
+  }
+});
+
+//*** Lists allow deny rules ***///
+Lists.allow({
+  insert: function(userid, doc){
+      return false;
+  },
+  update: function(userId, doc, fieldNames, modifier) {
+    if (doc._id === userId) 
+      return true;
   },
   remove: function(userid, doc){
     return false;
