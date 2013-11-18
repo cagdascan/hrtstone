@@ -6,10 +6,16 @@
 			<div class="cards_container">
 				<span class="mana">{{cost}}</span>
 				<span class="name">{{name}}</span>
-				{{#if more_than_one}}
-				<span class="count">
-					{{count}}
-				</span>
+				{{#if legendary}}
+					<span class="count">
+						<i class="fa fa-star"></i>
+					</span>
+					{{else}}
+					{{#if more_than_one}}
+					<span class="count">
+						{{count}}
+					</span>
+					{{/if}}
 				{{/if}}
 			</div>
 		</li>
