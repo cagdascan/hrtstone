@@ -107,6 +107,7 @@ Template.builddeck.events({
 			$('#done').modal('show');
 			var deck_name = $('#deck_name').val();
 			$('#deck_name_in_modal').val(deck_name);
+			Session.set('save_error', '');
 		}
 	},
 	'click #save': function (event) {
@@ -116,24 +117,31 @@ Template.builddeck.events({
 		var description = $('#desc_in_modal').val();
 		var decklist = Deck.find().fetch();
 
-		Decks.insert({'userid'      : Meteor.userId(),
-									'username'    : Meteor.user().username,
-									'userpicture' : gravatar_url,
-	                'deckname'    : deckname, 
-	                'description' : description,
-	                'class'       : Session.get('class'),
-	                'decklist'    : decklist,
-	                'timestamp'   : new Date(),
-	                'comments'    : [],
-	                'upvotes'     : [],
-	                'upvotes_count': 0,
-	                'comments_count': 0
-	               });
+		if (deckname.length > 3){
 
-		Deck.remove({}); //clear local deck
-		$('#done').modal('toggle'); //hide the modal
-		$('body').removeClass('modal-open');
-		Meteor.Router.to('/latest'); //route to decks latest page
+			Decks.insert({'userid'      : Meteor.userId(),
+										'username'    : Meteor.user().username,
+										'userpicture' : gravatar_url,
+		                'deckname'    : deckname, 
+		                'description' : description,
+		                'class'       : Session.get('class'),
+		                'decklist'    : decklist,
+		                'timestamp'   : new Date(),
+		                'comments'    : [],
+		                'upvotes'     : [],
+		                'upvotes_count': 0,
+		                'comments_count': 0
+		               });
+
+			Deck.remove({}); //clear local deck
+			$('#done').modal('toggle'); //hide the modal
+			$('body').removeClass('modal-open');
+			Meteor.Router.to('/latest'); //route to decks latest page
+		}
+		else if (deckname.length == 0)
+			Session.set('save_error', '*Please enter a name for your deck');
+		else
+			Session.set('save_error', '*Deck name is too short');
 	}
 });
 
@@ -147,6 +155,9 @@ Template.builddeck.helpers({
 			total = total + i.count;
 		});
 		return total;
+	},
+	save_error: function () {
+		return Session.get('save_error');
 	},
 	disabled: function () {
 		var total = 0;
