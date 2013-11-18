@@ -762,7 +762,6 @@ Template.builddeck.helpers({
 	}
 });
 Template.cards.rendered = function () {
-
 	$.each(document.images, function(){
 		var this_image = this;
 		var src = $(this_image).attr('src') || '' ;
@@ -779,7 +778,6 @@ Template.cards.rendered = function () {
 			}
 		}
 	});
-
 };
 Template.builddeck.rendered = function () {
 	///********* Arrow show or hide based on page count *****///
