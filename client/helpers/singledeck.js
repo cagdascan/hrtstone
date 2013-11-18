@@ -34,6 +34,10 @@ Template.singledeck.helpers({
 		else
 			return false;
 	},
+	card_url: function () {
+		var cardname = this.name;
+		return URLify2(cardname) + '-' + this.cardid;
+	},
 	mana_count: function (mana) {
 		var mana = mana;
 		var total = 0;

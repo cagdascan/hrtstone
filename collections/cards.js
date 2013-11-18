@@ -2,16 +2,26 @@ Cards = new Meteor.Collection('cards01');
 
 if (Meteor.isClient){
 
-	Deps.autorun(function() { 
-    card_query = function(){
-      return { $or:[
-      							 {'class': Session.get('class')},
-      							 {'class': ""}
-      							]
-      				 
-      			 };
-    }
-    card_query = card_query();
+	Deps.autorun(function() {
+		if (Meteor.Router.page() == 'builddeck'){ 
+	    var card_query = function(){
+	      return { $or:[
+	      							 {'class': Session.get('class')},
+	      							 {'class': ""}
+	      							]
+	      				 
+	      			 };
+	    }
+	    card_query = card_query();
+	  }
+
+	  else if (Meteor.Router.page() == 'singlecard'){
+			var card_query = function() {
+	  		var cardid = Session.get('singleCard');
+	  		return {'cardid': cardid};
+	  	}
+	  	card_query = card_query();
+	  }
 
     Meteor.subscribe('cards01', card_query);
   });
