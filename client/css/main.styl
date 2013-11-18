@@ -46,6 +46,13 @@ body {
 		cursor pointer
 		text-decoration none
 	}
+	.cannotbeselected {
+		-webkit-user-select: none !important;
+		-khtml-user-select: none !important;
+		-moz-user-select: none !important;
+		-o-user-select: none !important;
+		user-select: none !important;		
+	}	
 	.navbar-hrt {
 		background fuiwetasphalt
 		text-shadow rgba(0, 0, 0, 0.15) 0px -1px 0px
@@ -627,6 +634,7 @@ body {
 							box-shadow(none)
 							margin 0px 0 3px
 						}
+
 					}
 					.col2 {
 						width 85%
@@ -665,6 +673,7 @@ body {
 							border-color fuisilver
 							resize vertical
 							margin-bottom 10px
+							max-height 400px
 						}
 						.btn {
 							background fuiemerald
@@ -725,30 +734,6 @@ body {
 									}
 							}
 					}
-
-
-					// .number {
-					// 	text-align center
-					// 	font-size 15px
-					// 	color fuiwetasphalt
-					// 	line-height 25px
-					// 	font-weight 600
-					// 	margin-top	5px
-					// }
-					// .bar {
-					// 	height 140px
-					// 	background white
-					// 	margin auto
-					// 	margin-bottom 8px
-					// 	position relative
-					// 	.actual {
-					// 		position absolute
-					// 		bottom 0
-					// 		width 100%
-					// 		background fuiorange
-					// 		height 40px
-					// 	}
-					// }
 					.mana {
 						span {
 							background url(/img/mana.png) no-repeat
@@ -808,10 +793,14 @@ body {
 						float right
 						height 30px
 						line-height 30px
-						background fuipreclouds
+						background fuializarin
 						padding 0 8px
 						border-radius(4px)
-						color fuiwetasphalt
+						color white
+						width: 28px;
+						text-align: center;
+						font-size 15px
+						font-weight 600
 					}
 				}
 			}			
@@ -857,67 +846,87 @@ body {
 		}
 		.color-red1 {
 			background fuializarin
-			color white
+			color rgba(255,255,255,0.8)
 		}
 		.color-red2 {
 			background fuipomegranate
-			color white
+			color rgba(255,255,255,0.8)
 		}
 		.color-blue1 {
 			background fuipeterriver
-			color white
+			color rgba(255,255,255,0.8)
 		}
 		.color-blue2 {
 			background fuibelizehole
-			color white
+			color rgba(255,255,255,0.8)
 		}
 		.color-purple1 {
 			background fuiamethyst
-			color white
+			color rgba(255,255,255,0.8)
 		}
 		.color-purple2 {
 			background fuiwisteria
-			color white
+			color rgba(255,255,255,0.8)
 		}
 		.color-yellow1 {
 			background fuisunflower
-			color white
+			color rgba(255,255,255,0.8)
 		}
 		.color-yellow2 {
 			background fuiorange
-			color white
+			color rgba(255,255,255,0.8)
 		}
 		.color-orange1 {
 			background fuicarrot
-			color white
+			color rgba(255,255,255,0.8)
 		}
 		.color-orange2 {
 			background fuipumpkin
-			color white
+			color rgba(255,255,255,0.8)
 		}
 		.color-darkblue1 {
 			background fuiwetasphalt
-			color white				
+			color rgba(255,255,255,0.8)				
 		}
 		.color-darkblue2 {
 			background fuimidnightblue
-			color white				
+			color rgba(255,255,255,0.8)				
 		}
 		.color-gray1 {
 			background fuipreclouds
-			color fuiwetasphalt				
+			color rgba(0,0,0,0.8)				
 		}
 		.color-gray2 {
 			background fuisilver
-			color fuiwetasphalt				
+			color rgba(0,0,0,0.8)					
 		}
 		.color-turquoise1 {
 			background fuiturquoise
-			color white				
+			color rgba(255,255,255,0.8)				
 		}
 		.color-turquoise2 {
 			background fuigreensea
-			color white				
+			color rgba(255,255,255,0.8)					
+		}
+		.common {
+			background #333
+			color rgba(255,255,255,0.8)					
+		}
+		.epic {
+			background #A335EE
+			color rgba(255,255,255,0.8)		
+		}
+		.free {
+			background fuipreclouds
+			color rgba(0,0,0,0.8)	
+		}
+		.legendary {
+			background  #FF8000
+			color rgba(255,255,255,0.8)		
+		}
+		.rare {
+			background #0070FF
+			color rgba(255,255,255,0.8)		
 		}
 		ul.infobadges {
 			float left
@@ -948,10 +957,11 @@ body {
 					width 100%
 					height 54px
 					text-align center
-					font-size 18px
-					font-weight 300
+					font-size 20px
+					font-weight 400
 					line-height 20px
 					padding 0 4px
+					text-transform capitalize
 					&.font2 {
 						font-size 36px
 					}
@@ -1463,10 +1473,13 @@ body {
 								float right
 								height 24px
 								line-height 24px
-								background fuipumpkin
+								background fuializarin
 								padding 0 4px
 								color white
 								font-size 12px
+								width: 17px;
+								text-align: center;
+								font-weight 600
 							}
 						}
 						&:hover {

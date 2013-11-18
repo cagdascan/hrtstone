@@ -2,9 +2,9 @@
 	{{#each cards}}
 		<li>
 			{{#constant}}
-				<img lsrc="http://s3.amazonaws.com/hearthstoner/cards/{{this.cardid}}.jpg" src="/img/hearthstone-card-back.png" border="0"/>
+				<img class="cannotbeselected" lsrc="http://s3.amazonaws.com/hearthstoner/cards/{{this.cardid}}.jpg" src="/img/hearthstone-card-back.png" border="0"/>
 			{{/constant}}
-			<i class="{{lock}}"></i>
+			<i class="cannotbeselected {{lock}}"></i>
 		</li>
 	{{/each}}
 </template>
