@@ -1,6 +1,11 @@
 Template.singledeck.helpers({
 	deck: function () {
-		return Decks.find().fetch(); 
+		return Decks.find({}, {sort: {'cost': 1}}).fetch(); 
+	},
+	decklist: function (){
+		var decklist = Decks.find().fetch()[0].decklist;
+		decklist = _.sortBy(decklist, function(card){return card.cost});
+		return decklist;
 	},
 	singledeck_url: function () {
 		var deckname = URLify2(this.value.deckname) + '-' + this.value._id;
@@ -101,42 +106,42 @@ Template.singledeck.helpers({
 			if (total_0 == max)
 				return 80;
 			else 
-				return Math.ceil(total_0 / max * 100);
+				return Math.ceil(total_0 / max * 80);
 		else if (mana == "1")
 			if (total_1 == max)
 				return 80;
 			else 
-				return Math.ceil(total_1 / max * 100);
+				return Math.ceil(total_1 / max * 80);
 		else if (mana == "2")
 			if (total_2 == max)
 				return 80;
 			else 
-				return Math.ceil(total_2 / max * 100);
+				return Math.ceil(total_2 / max * 80);
 		else if (mana == "3")
 			if (total_3 == max)
 				return 80;
 			else 
-				return Math.ceil(total_3 / max * 100);
+				return Math.ceil(total_3 / max * 80);
 		else if (mana == "4")
 			if (total_4 == max)
 				return 80;
 			else 
-				return Math.ceil(total_4 / max * 100);
+				return Math.ceil(total_4 / max * 80);
 		else if (mana == "5")
 			if (total_5 == max)
 				return 80;
 			else 
-				return Math.ceil(total_5 / max * 100);
+				return Math.ceil(total_5 / max * 80);
 		else if (mana == "6")
 			if (total_6 == max)
 				return 80;
 			else 
-				return Math.ceil(total_6 / max * 100);
+				return Math.ceil(total_6 / max * 80);
 		else if (mana == "7")
 			if (total_7 == max)
 				return 80;
 			else 
-				return Math.ceil(total_7 / max * 100);
+				return Math.ceil(total_7 / max * 80);
 	},
 	voted: function () {
 		if (Meteor.userId() == null)
@@ -166,6 +171,7 @@ Template.singledeck.events({
                    });
 		$('#comment_area').val('');
 		Session.set('current_comment', '');
+		Meteor.call('comment_count_updater', this._id);
 	},
 	'keyup #comment_area': function () {
 		var comment = $('#comment_area').val();

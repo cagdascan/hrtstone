@@ -27,6 +27,9 @@ Meteor.methods({
     else{
       Decks.update({'_id': deckid}, {$inc:{'upvotes_count': -1}});
     }
+  },
+  comment_count_updater: function (deckid){
+    Decks.update({'_id': deckid}, {$inc:{'comments_count': 1}});
   }
 });
 
