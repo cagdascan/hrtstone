@@ -7,6 +7,7 @@ Session.set('deck_sort', 'top');
 Session.set('selected_class', 'All Classes');
 Session.set('deck_limit', 10);
 Session.set('save_error', '');
+Session.set('current_comment', '');
 
 Deck = new Meteor.Collection(null); //local collection for deck building
 

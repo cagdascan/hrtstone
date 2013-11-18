@@ -3,16 +3,16 @@
 	<div class="row decklist">
 		
 		<div class="col-md-1 unit order">
-			<a href="">{{key}}
+			<a href="deck/{{singledeck_url}}">{{key}}
 			</a>
 		</div>
 			
-		<div class="col-md-1 unit upvote">
+		<div class="col-md-1 unit upvote {{voted}}">
 			<i class="fa fa-caret-up"></i>
 			<div>{{value.upvotes_count}}</div>
 		</div>
 		<div class="col-md-7 unit name">
-			<a href="/deck/miracle-rogue" class="name1">{{shorten value.deckname}}</a>
+			<a href="/deck/{{singledeck_url}}" class="name1">{{shorten value.deckname}}</a>
 			<div class="name2">
 				<a><img src="{{value.userpicture}}">{{value.username}}
 				</a>
@@ -24,7 +24,7 @@
 			<span class="{{value.class}}"></span>{{value.class}}
 		</div>
 		
-		<a class="col-md-1 unit comments">
+		<a href="deck/{{singledeck_url}}" class="col-md-1 unit comments">
 			<i class="fa fa-comment"></i>
 			<div class="count">{{value.comments_count}}</div>
 		</a>

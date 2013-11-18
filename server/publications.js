@@ -13,6 +13,11 @@ Meteor.publish("userlists", function (){
   return Lists.find({'_id': this.userId});
 });
 
+//*** Comments publication ***///
+Meteor.publish("comments", function (deckid, limit){
+  return Comments.find({'deckid': deckid}, {sort: {timestamp: -1}, limit: limit});
+});
+
 //** Server side methods ***///
 Meteor.methods({
   upvote_count_updater: function (deckid, upvote){
@@ -39,23 +44,35 @@ Decks.allow({
   update: function(userId, doc, fieldNames, modifier) {
     return false;
   },
-  remove: function(userid, doc){
+  remove: function(userId, doc){
     return false;
   }
 });
 
 //*** Lists allow deny rules ***///
 Lists.allow({
-  insert: function(userid, doc){
+  insert: function(userId, doc){
       return false;
   },
   update: function(userId, doc, fieldNames, modifier) {
     if (doc._id === userId) 
       return true;
   },
-  remove: function(userid, doc){
+  remove: function(userId, doc){
     return false;
   }
 });
 
-
+//*** Comments allow deny rules ***///
+Comments.allow({
+  insert: function(userId, doc){
+    if (doc.userid === userId)
+      return true;
+  },
+  update: function(userId, doc, fieldNames, modifier) {
+    return false
+  },
+  remove: function(userid, doc){
+    return false;
+  }
+});

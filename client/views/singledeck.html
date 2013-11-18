@@ -1,51 +1,55 @@
-<template name="singledeck">																						
+<template name="singledeck">
+	{{#each deck}}																						
 	<div class="container singledeck">
 		<div class="row">
 			<div class="col-md-5 section1">
 				<div class="col1">
 					<div class="upvote">
 						<i class="fa fa-caret-up"></i>
-						<div>52</div>
+						<div>{{upvotes_count}}</div>
 					</div>
 				</div>
 				<div class="col2">
-					<h1>Miracle Rogue</h1>
+					<h1>{{deckname}}</h1>
 					<div class="info1">
-						<a class="userway"><img src="https://gp6.googleusercontent.com/-D-epOo8-vQY/AAAAAAAAAAI/AAAAAAAAAAA/kXJYYxx8NCE/s48-c-k-no/photo.jpg"/> Contador</a> <span>8h ago</span>
+						<a class="userway"><img src="{{userpicture}}"/>{{username}}</a><span>&nbsp;|&nbsp;{{timeago timestamp}}</span>
 					</div>
 				</div>
 				<div class="description">
-					<p>The deck, while fun to play, can be incredibly difficult to master and is not recommended for inexperienced players. On paper the list may seem very straightforward, but the deck can be very unforgiving to even the slightest of incorrect plays. Pushing “all-in” too early will leave your minion(s) vulnerable to any handful of removal spells, ultimately eliminating your win condition, while waiting until too late in the game will give your opponent the necessary time to swing the game in their favor. It requires a large attention to game detail and proper planning to fully utilize its capabilities.
-					</p>
+					<p>{{description}}</p>
 				</div>
 				
 				<ul class="comments">
+					{{#if currentUser}}
 					<li style="margin-top:0;">
 						<div class="col1">
-							<img src="https://d233eq3e3p3cv0.cloudfront.net/fit/c/190/190/0*S-tH4ibstPjOeVKp.png"/>
-							<a class="name">Contador</a>
+							<img src="{{current_userpicture}}"/>
+							<a class="name">{{username}}</a>
 						</div>
 						<div class="col2">
-							<textarea placeholder="aisşd" rows="4"></textarea>
- 							<button type="button" class="btn">Send</button>							
+							<textarea placeholder="Write a comment ..." rows="4" id="comment_area"></textarea>
+ 							<button type="button" class="btn {{disabled}}" id="send_comment">Send</button>							
 						</div>
 					</li>
+					{{/if}}
+					{{#each comments}}
 					<li>
 						<div class="col1">
-							<img src="https://d233eq3e3p3cv0.cloudfront.net/fit/c/190/190/0*S-tH4ibstPjOeVKp.png"/>
-							<a class="name">Contador</a>
-							<div class="timeago">17h ago</div>
+							<img src="{{userpicture}}"/>
+							<a class="name">{{username}}</a>
+								<div class="timeago">{{timeago timestamp}}</div>
 						</div>
 						<div class="col2">
-							<p>I recently started to play and I don't have cards like Bloodmage Thalnos, Edwin VanCleef, Preparation, Mana Addict and Questing Adventurer but I realy like rogue play style, so now I'm running a "crippled" version of this deck, however it is still amazingly fun to play. I've got only 1 legendary card - Leeroy Jenkins and managed to get some good damage with him using shadowstep, cold blood and conceal. Thx for great deck!
+							<p>{{comment}}
 							</p>
 						</div>
 					</li>
+					{{/each}}
 				</ul>
 				
 			</div>
 			<div class="col-md-3 section2">
-				<div class="image">
+				<div class="{{class}}">
 				</div>
 				<ul class="curves">
 					<li>
@@ -112,26 +116,19 @@
 					</li>
 				</ul>
 				<ul class="cardlist">
+					{{#each decklist}}
 					<li>
-						<span class="mana">3</span>
-						<span class="name">Ofra Haza</span>
-						<span class="count">2</spamn>
+						<span class="mana">{{this.cost}}</span>
+						<span class="name">{{this.name}}</span>
+						{{#if legendary}}
+							<span class="count"><i class="fa fa-star"></i></span>
+						{{else}}
+							{{#if more_than_one}}
+								<span class="count">{{this.count}}</span>
+							{{/if}}
+						{{/if}}
 					</li>
-					<li>
-						<span class="mana">3</span>
-						<span class="name">Ofra Haza</span>
-						<span class="count">2</spamn>
-					</li>
-					<li>
-						<span class="mana">3</span>
-						<span class="name">Ofra Haza</span>
-						<span class="count">2</spamn>
-					</li>
-					<li>
-						<span class="mana">3</span>
-						<span class="name">Ofra Haza</span>
-						<span class="count">2</spamn>
-					</li>
+					{{/each}}
 				</ul>
 			</div>
 			<div class="col-md-4 hidden-xs hidden-sm column2">
@@ -144,4 +141,5 @@
 			</div>
 		</div>
 	</div>
+	{{/each}}
 </template>

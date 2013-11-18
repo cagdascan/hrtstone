@@ -14,6 +14,20 @@ Template.decklist.helpers({
 				return Decks.find({'class': Session.get('selected_class')},
 													{sort: {timestamp: -1}, limit: Session.get('deck_limit')}).fetch();
 		}
+	},
+	singledeck_url: function () {
+		var deckname = URLify2(this.value.deckname) + '-' + this.value._id;
+		return deckname;
+	},
+	voted: function () {
+		if (Meteor.userId() == null)
+			return ''
+		else{
+			if (Lists.find({_id: Meteor.userId(), 'upvotes': this.value._id}).fetch().length == 0)
+				return '';
+			else
+				return 'voted';
+		}
 	}
 });
 
