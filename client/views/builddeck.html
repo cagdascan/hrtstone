@@ -181,7 +181,7 @@
 					    <div class="modal-content">
 					      <div class="modal-header">
 					        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					        <input type="text" id="deck_name_in_modal" class="form-control modal-title" placeholder="Enter deck name">
+					        <input type="text" id="deck_name_in_modal" class="form-control modal-title" placeholder="Enter deck name">{{#isolate}}{{save_error}}{{/isolate}}
 					      </div>
 					      <div class="modal-body" >
 					       	<textarea class="form-control" id="desc_in_modal" placeholder="Type a description for the deck" rows="3"></textarea>
