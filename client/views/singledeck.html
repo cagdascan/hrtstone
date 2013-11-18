@@ -36,12 +36,16 @@
 					<li>
 						<div class="col1">
 							<img src="{{userpicture}}"/>
-							<a class="name">{{username}}</a>
-								<div class="timeago">{{timeago timestamp}}</div>
+							
+								
 						</div>
 						<div class="col2">
 							<p>{{comment}}
 							</p>
+							<div class="whowhen">
+								by <a class="name">{{username}}</a>,
+								<div class="timeago">{{timeago timestamp}}</div>
+							</div>
 						</div>
 					</li>
 					{{/each}}
@@ -52,9 +56,10 @@
 				<img src="/img/heroes/{{class}}.png"/>
 				<ul class="curves">
 					<li>
-						<div class="number">{{mana_count 0}}</div>
+						
 						<div class="bar">
 							<div class="actual" style="height:{{height 0}}%">
+								<div class="number">{{mana_count 0}}</div>
 							</div>
 						</div>
 						<div class="mana">
@@ -62,9 +67,10 @@
 						</div>
 					</li>
 					<li>
-						<div class="number">{{mana_count 1}}</div>
+						
 						<div class="bar">
-							<div class="actual" style="height:{{height 1}}%">
+							
+							<div class="actual" style="height:{{height 1}}%"><div class="number">{{mana_count 1}}</div>
 							</div>
 						</div>
 						<div class="mana">
@@ -72,18 +78,20 @@
 						</div>
 					</li>
 					<li>
-						<div class="number">{{mana_count 2}}</div>
+						
 						<div class="bar">
-							<div class="actual" style="height:{{height 2}}%"></div>
+							<div class="actual" style="height:{{height 2}}%">
+								<div class="number">{{mana_count 2}}</div>
+							</div>
 						</div>
 						<div class="mana">
 							<span>2</span>
 						</div>
 					</li>
 					<li>
-						<div class="number">{{mana_count 3}}</div>
 						<div class="bar">
 							<div class="actual" style="height:{{height 3}}%">
+								<div class="number">{{mana_count 3}}</div>
 							</div>
 						</div>
 						<div class="mana">
@@ -91,9 +99,9 @@
 						</div>
 					</li>
 					<li>
-						<div class="number">{{mana_count 4}}</div>
 						<div class="bar">
 							<div class="actual" style="height:{{height 4}}%">
+								<div class="number">{{mana_count 4}}</div>
 							</div>
 						</div>
 						<div class="mana">
@@ -101,9 +109,9 @@
 						</div>
 					</li>
 					<li>
-						<div class="number">{{mana_count 5}}</div>
 						<div class="bar">
 							<div class="actual" style="height:{{height 5}}%">
+								<div class="number">{{mana_count 5}}</div>
 							</div>
 						</div>
 						<div class="mana">
@@ -111,9 +119,9 @@
 						</div>
 					</li>
 					<li>
-						<div class="number">{{mana_count 6}}</div>
 						<div class="bar">
 							<div class="actual" style="height:{{height 6}}%">
+								<div class="number">{{mana_count 6}}</div>
 							</div>
 						</div>
 						<div class="mana">
@@ -121,9 +129,9 @@
 						</div>
 					</li>
 					<li>
-						<div class="number">{{mana_count 7}}</div>
 						<div class="bar">
 							<div class="actual" style="height:{{height 7}}%">
+								<div class="number">{{mana_count 7}}</div>
 							</div>
 						</div>
 						<div class="mana">

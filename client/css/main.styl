@@ -627,33 +627,38 @@ body {
 							box-shadow(none)
 							margin 0px 0 3px
 						}
-						.name {
-							font-size 11px
-							font-weight 400
-							line-height 15px
-							text-align center
-							padding 0
-							color fuiwetasphalt
-							display block
-							word-break break-all
-							&:hover {
-								color fuipeterriver
-							}
-						}
-						.timeago {
-							color fuiasbestos
-							font-size 11px
-							line-height 15px
-							text-align center
-						}
 					}
 					.col2 {
 						width 85%
 						float left
 						p {
-							margin-bottom 20px
+							margin-bottom 10px
 							font-size 16px
 							font-weight 300
+						}
+						.whowhen {
+							text-align right
+							color fuiconcrete
+							font-size 13px
+							.name {
+								font-weight 600
+								line-height 15px
+								text-align right
+								padding 0
+								color fuiwetasphalt
+								display inline-block
+								word-break break-all
+								&:hover {
+									color fuipeterriver
+								}
+							}						
+							.timeago {
+								color fuiconcrete
+								
+								line-height 15px
+								text-align center
+								display inline-block
+							}
 						}
 						textarea {
 							width 100%
@@ -683,37 +688,67 @@ body {
 				margin 0 10% 5%
 			}
 			ul.curves {
-				padding 2px 9px
+				padding 9px
 				background fuipreclouds
-				margin 0
-				height 220px
+				margin 0 0 1px
+				height 151px
 				list-style-type none
 				li {
 					width 12.5%
 					padding-right 1px
 					float left
-					.number {
-						text-align center
-						font-size 15px
-						color fuiwetasphalt
-						line-height 25px
-						font-weight 600
-						margin-top	5px
-					}
-					.bar {
-						height 140px
-						background white
-						margin auto
-						margin-bottom 8px
-						position relative
-						.actual {
-							position absolute
-							bottom 0
-							width 100%
-							background fuiorange
-							height 40px
+					&:nth-child(2n+1) {
+						.bar {
+							background rgba(255,255,255,0.7)
 						}
+					}					
+					.bar {
+							height 100px
+							background white
+							margin 0 4px 8px
+							position relative
+
+							.actual {
+									position absolute
+									bottom 0
+									width 100%
+									background fuiorange
+									.number {
+										top -20px
+										position absolute
+										text-align center
+										font-size 12px
+										color fuiwetasphalt
+										line-height 20px
+										font-weight 600
+										width 100%
+									}
+							}
 					}
+
+
+					// .number {
+					// 	text-align center
+					// 	font-size 15px
+					// 	color fuiwetasphalt
+					// 	line-height 25px
+					// 	font-weight 600
+					// 	margin-top	5px
+					// }
+					// .bar {
+					// 	height 140px
+					// 	background white
+					// 	margin auto
+					// 	margin-bottom 8px
+					// 	position relative
+					// 	.actual {
+					// 		position absolute
+					// 		bottom 0
+					// 		width 100%
+					// 		background fuiorange
+					// 		height 40px
+					// 	}
+					// }
 					.mana {
 						span {
 							background url(/img/mana.png) no-repeat
@@ -735,15 +770,20 @@ body {
 				padding 0
 				list-style-type: none
 				li a {
-					border-bottom 1px solid fuipreclouds
+					border-bottom 1px solid white
 					display block
 					height 37px
 					width 100%
 					padding 3px
-					background url(/img/cardlist-layer-2.png) no-repeat
+					background url(/img/cardlist-layer.png) repeat-y
 					background-size 100%
 					position relative
 					z-index 5
+					&:hover {
+						span.name {
+							color fuipeterriver
+						}
+					}
 					span.mana {
 						background url(/img/mana.png) -60px 0 no-repeat
 						background-size 300%
@@ -762,6 +802,7 @@ body {
 						line-height 30px
 						font-size 18px
 						color fuiwetasphalt
+						text-shadow 1px 1px white
 					}
 					span.count {
 						float right
@@ -1371,7 +1412,7 @@ body {
 							}
 							&:nth-child(2n+1) {
 									.bar {
-											background rgba(255,255,255,0.5)
+											background rgba(255,255,255,0.7)
 									}
 							}
 					}
