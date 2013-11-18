@@ -83,15 +83,15 @@ Template.builddeck.events({
 		if (total < 30){ // add upto 30 cards
 			if (this.rarity != 'legendary'){ // allow upto 2 card if not legendary
 				if (Deck.find({'cardid': this.cardid}).count() == 1)
-					Deck.update({'cardid': this.cardid}, {$set:{'cardid': this.cardid, 'name':this.name, 'cost':this.cost, 'count': 2}})
+					Deck.update({'cardid': this.cardid}, {$set:{'cardid': this.cardid, 'name':this.name, 'cost':this.cost, 'count': 2, 'rarity': this.rarity}})
 				else
-					Deck.insert({'cardid': this.cardid, 'name':this.name, 'cost':this.cost, 'count': 1});
+					Deck.insert({'cardid': this.cardid, 'name':this.name, 'cost':this.cost, 'count': 1, 'rarity': this.rarity});
 			}
 			else{ // allow 1 card if legendary
 				if (Deck.find({'cardid': this.cardid}).count() == 1)
 					return;
 				else
-					Deck.insert({'cardid': this.cardid, 'name':this.name, 'cost':this.cost, 'count': 1});
+					Deck.insert({'cardid': this.cardid, 'name':this.name, 'cost':this.cost, 'count': 1, 'rarity': this.rarity});
 			}
 		}
 		else
@@ -792,14 +792,18 @@ Template.builddeck.rendered = function () {
 	});
 };
 
-
-
 Template.currentdeck.helpers({
 	card: function () {
 		return Deck.find({}, {sort:{'cost': 1}}).fetch();
 	},
 	more_than_one: function () {
 		if (this.count == 2)
+			return true;
+		else
+			return false;
+	},
+	legendary: function () {
+		if (this.rarity == 'legendary')
 			return true;
 		else
 			return false;
