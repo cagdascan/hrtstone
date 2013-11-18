@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col-md-5 section1">
 				<div class="col1">
-					<div class="upvote">
+					<div class="upvote {{voted}}">
 						<i class="fa fa-caret-up"></i>
 						<div>{{upvotes_count}}</div>
 					</div>
@@ -49,8 +49,7 @@
 				
 			</div>
 			<div class="col-md-3 section2">
-				<div class="{{class}}">
-				</div>
+				<img src="/img/heroes/{{class}}.png"/>
 				<ul class="curves">
 					<li>
 						<div class="number">{{mana_count 0}}</div>
@@ -134,17 +133,19 @@
 				</ul>
 				<ul class="cardlist">
 					{{#each decklist}}
-					<li>
+					<li style="background: url(http://s3.amazonaws.com/hearthstoner/cards/{{cardid}}.jpg) no-repeat 70px -70px;background-size:90%;">
 						<a href="">
-						<span class="mana">{{this.cost}}</span>
-						<span class="name">{{this.name}}</span>
-						{{#if legendary}}
-							<span class="count"><i class="fa fa-star"></i></span>
-						{{else}}
-							{{#if more_than_one}}
-								<span class="count">{{this.count}}</span>
-							{{/if}}
-						{{/if}}
+							<div class="cards_container">
+								<span class="mana">{{this.cost}}</span>
+								<span class="name">{{this.name}}</span>
+								{{#if legendary}}
+									<span class="count"><i class="fa fa-star"></i></span>
+								{{else}}
+									{{#if more_than_one}}
+										<span class="count">{{this.count}}</span>
+									{{/if}}
+								{{/if}}
+							</div>
 						</a>
 					</li>
 					{{/each}}

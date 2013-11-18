@@ -133,6 +133,16 @@ Template.singledeck.helpers({
 				return 80;
 			else 
 				return Math.ceil(total_7 / max * 100);
+	},
+	voted: function () {
+		if (Meteor.userId() == null)
+			return ''
+		else{
+			if (Lists.find({_id: Meteor.userId(), 'upvotes': this._id}).fetch().length == 0)
+				return '';
+			else
+				return 'voted';
+		}
 	}
 });
 

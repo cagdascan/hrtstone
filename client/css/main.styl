@@ -370,11 +370,11 @@ body {
 					font-size 17px
 					line-height 20px
 				}
-				&:hover {
+				&:hover, &.voted {
 					background fuiemerald
 					color white
 					cursor pointer
-				} 
+				}
 			}
 			.name {
 				color fuiwetasphalt
@@ -539,8 +539,8 @@ body {
 						display block
 						text-align center
 						font-size 50px
-						height 40px
-						line-height 40px
+						height 36px
+						line-height 36px
 					}
 					div {
 						height 42px
@@ -553,7 +553,12 @@ body {
 						background fuiemerald
 						color white
 						cursor pointer
-					} 
+					}
+					&.voted, &.voted:hover {
+						background fuiemerald
+						color white
+						cursor pointer						
+					}
 				}
 			}
 			.col2 {
@@ -591,7 +596,7 @@ body {
 			.description {
 				display block
 				float left
-				margin 10px 0
+				margin 10px 0 0
 				p {
 					font-size 17px
 					font-weight 300
@@ -600,7 +605,7 @@ body {
 			ul.comments {
 				list-style-type none
 				padding 0
-				margin 0
+				margin 10px 0 0
 				line-height 1.4
 				float left
 				width 100%
@@ -669,12 +674,13 @@ body {
 			}
 		}
 		.section2 {
-			.image {
-				background url(/img/heroes.png) no-repeat 0 0;
+			img {
+				background url(/img/heroes/hearthstone-card-back.png) no-repeat 0 0;
 				background-size 100%
-				height 78px
+				height auto
 				display block
-				width 100%
+				width 80%
+				margin 0 10% 5%
 			}
 			ul.curves {
 				padding 2px 9px
@@ -734,6 +740,10 @@ body {
 					height 37px
 					width 100%
 					padding 3px
+					background url(/img/cardlist-layer-2.png) no-repeat
+					background-size 100%
+					position relative
+					z-index 5
 					span.mana {
 						background url(/img/mana.png) -60px 0 no-repeat
 						background-size 300%
@@ -744,7 +754,7 @@ body {
 						color white
 						text-align center
 						margin 2px
-	 				}
+		 			}
 					span.name {
 						float left
 						margin 0 6px

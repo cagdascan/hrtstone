@@ -35,7 +35,7 @@ Template.decklist.events({
 	'click button#load_more': function () {
 		Session.set('deck_limit', Session.get('deck_limit') + 10);
 	},
-	'click div.upvote': function () {
+	'click div.upvote': function (event) {
 		if (Meteor.user() == null){ // if not signed in, direct user to signing in
 			event.stopPropagation();
 			$('a.dropdown-toggle').dropdown('toggle');
