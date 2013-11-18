@@ -1,5 +1,6 @@
 Meteor.Router.add({
 	'/'								 	 : 'decks',
+	'/card/fireball': 'singlecard',
 	'/build-deck'				 : function(){
 													Session.set('class', 'Druid');
 													return 'builddeck';
