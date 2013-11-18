@@ -164,7 +164,7 @@ Template.builddeck.helpers({
 		Deck.find({}).fetch().forEach(function(i){
 			total = total + i.count;
 		});
-		if (total == 4)
+		if (total == 30)
 			return '';
 		else
 			return 'disabled';
