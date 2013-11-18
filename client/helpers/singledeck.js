@@ -30,6 +30,16 @@ Template.singledeck.helpers({
 			return true;
 		else
 			return false;
+	},
+	voted: function () {
+		if (Meteor.userId() == null)
+			return ''
+		else{
+			if (Lists.find({_id: Meteor.userId(), 'upvotes': this._id}).fetch().length == 0)
+				return '';
+			else
+				return 'voted';
+		}
 	}
 });
 
