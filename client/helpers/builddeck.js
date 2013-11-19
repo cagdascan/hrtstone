@@ -149,9 +149,9 @@ Template.builddeck.events({
 			Meteor.Router.to('/latest'); //route to decks latest page
 		}
 		else if (deckname.length == 0)
-			Session.set('save_error', '*Please enter a name for your deck');
+			Session.set('save_error', "<div class='alert alert-danger'>A deck <strong>without a name</strong> is like a Mage without any spell.</div>");
 		else
-			Session.set('save_error', '*Deck name is too short');
+			Session.set('save_error', "<div class='alert alert-danger'>You don't have enough mana. Oops, <strong>not enough chars</strong> we mean...</div>");
 	},
 	///*** Tab navigation in save your deck modal *****///
 	'click #desc_write': function (){
@@ -192,7 +192,7 @@ Template.builddeck.helpers({
 		return total;
 	},
 	save_error: function () {
-		return Session.get('save_error');
+		return new Handlebars.SafeString(Session.get('save_error'));
 	},
 	disabled: function () {
 		var total = 0;
