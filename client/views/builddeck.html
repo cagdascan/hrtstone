@@ -181,26 +181,25 @@
 					    <div class="modal-content">
 					      <div class="modal-header">
 					        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					        <input type="text" id="deck_name_in_modal" class="form-control modal-title" placeholder="Enter deck name">{{#isolate}}{{save_error}}{{/isolate}}
+					        <input type="text" id="deck_name_in_modal" class="form-control modal-title" placeholder="Name your deck">{{#isolate}}{{save_error}}{{/isolate}}
 					      </div>
 					      <div class="modal-body" >
 					      	{{#isolate}}
 					      	<ul class="nav nav-tabs">
 									  <li class="active"><a href="#write" id="desc_write">Write</a></li>
 									  <li><a href="#preview" id="desc_preview">Preview</a></li>
+									  <li class="pull-right"><i class="fa fa-info-circle fa-2x" id="markdown-info"></i></li>
 									</ul>
 									{{/isolate}}
 									<div class="tab-content">
 										<div class="tab-pane active" id="write">
 											{{#isolate}}
-											<textarea class="form-control" id="desc_in_modal" rows="6"></textarea>
+											<textarea class="form-control" id="desc_in_modal" rows="6" placeholder="Describe your deck - Write your strategy"></textarea>
 							       	{{/isolate}}
 						       </div>
 									<div class="tab-pane" id="preview">
 											{{#isolate}}
-											{{#markdown}}
-												{{description}}
-											{{/markdown}}
+											{{#markdown}}{{description}}{{/markdown}}
 											{{/isolate}}
 									</div>
 					       </div>

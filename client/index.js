@@ -11,5 +11,4 @@ Session.set('current_comment', '');
 Session.set('desc', '');
 
 Deck = new Meteor.Collection(null); //local collection for deck building
-Preview = new Meteor.Collection(null); //local collection for deck building
 

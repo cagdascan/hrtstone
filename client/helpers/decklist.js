@@ -62,11 +62,16 @@ Handlebars.registerHelper('key_value', function(context, options) {
   return result;
 });
 
-Handlebars.registerHelper('shorten', function(word) {
+Handlebars.registerHelper('capitalize_and_shorten', function(word) {
+  word =  word.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() 
+  	+ txt.substr(1).toLowerCase();});
+
   if (word.length > 48){
 			var deckname = word.slice(0,46) + ' ...';
 			return deckname;
 		}
 		else
 			return word;
+
 });
+

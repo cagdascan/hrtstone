@@ -14,6 +14,7 @@ Template.builddeck.events({
 			Session.set('neutral_selected', false);
 			Session.set('class', selected_class);
 			Session.set('cost', 'All');
+			$('#deck_name').val('');
 			//*** reset mana filter ***///
 			$('.filter3 ul.manas li').removeClass('active');
 			$('#all').addClass('active');
@@ -30,6 +31,7 @@ Template.builddeck.events({
 		$('.filter1 ul#classes li').removeClass('active');
 		$('.filter3 ul.manas li').removeClass('active');
 		$('#all').addClass('active');
+		$('#deck_name').val('');
 		Session.set('page_number', 0);
 		Deck.remove({}); // delete your current deck
 	},
@@ -105,6 +107,13 @@ Template.builddeck.events({
 		}
 		else{
 			$('#done').modal('show');
+			var content = "<ul><li>This is an H1</li><li>==========</li><li>This is an H2</li><li>----------------</li><hr/><li><em>*This is italic*</em></li><li><strong>**This is bold**</strong></li><hr/><li>This is an ordered list</li><li>1. Mage</li><li>2. Hunter</li><li>3. Priest</li><hr/><li>This is [an example](http://exampleexample.com/ 'Title') inline link.</li></ul>";
+				$('#markdown-info').popover({placement: 'right',
+																 content: 'hey',
+																 title: 'You can use <a href="http://daringfireball.net/projects/markdown/" target="_blank">markdown</a> here!',
+																 html: true,
+																 content: content
+																});
 			var deck_name = $('#deck_name').val();
 			$('#deck_name_in_modal').val(deck_name);
 			Session.set('save_error', '');
@@ -134,6 +143,7 @@ Template.builddeck.events({
 		               });
 
 			Deck.remove({}); //clear local deck
+			Session.set('desc', ''); //clear preview pane
 			$('#done').modal('toggle'); //hide the modal
 			$('body').removeClass('modal-open');
 			Meteor.Router.to('/latest'); //route to decks latest page
@@ -143,24 +153,27 @@ Template.builddeck.events({
 		else
 			Session.set('save_error', '*Deck name is too short');
 	},
+	///*** Tab navigation in save your deck modal *****///
 	'click #desc_write': function (){
 		$('#desc_write').tab('show');
 	},
+	///*** Tab navigation in save your deck modal *****///
 	'click #desc_preview': function (){
-		event.preventDefault();
-		// var description = document.getElementById("desc_in_modal").value;
-		// description = description.replace( /\r?\n/g, "\r\n" );
 		$('#desc_preview').tab('show');
 	},
+	///*** Refreshes preview pane in save your deck modal ***///
 	'keyup #desc_in_modal': function () {
-		event.stopPropagation();
 		var desc = document.getElementById("desc_in_modal").value;
-		console.log('desc: ' + desc);
-		// desc = desc.replace( /\r?\n/g, "\r\n" );
-		// desc = desc.replace(/\s/g, " ");
-		// desc = desc.substr(4);
 		Session.set('desc', desc);
-		console.log('session: ' + Session.get('desc'));
+	},
+	'click i#markdown-info': function () {
+		console.log('markdown');
+		$('#markdown-info').popover({placement: 'right',
+																 content: 'hey',
+																 title: 'You can use markdown here!',
+																 html: true,
+																 content: '<h2>lols</h2>'
+																});
 	}
 });
 
