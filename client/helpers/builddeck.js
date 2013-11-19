@@ -142,12 +142,34 @@ Template.builddeck.events({
 			Session.set('save_error', '*Please enter a name for your deck');
 		else
 			Session.set('save_error', '*Deck name is too short');
+	},
+	'click #desc_write': function (){
+		$('#desc_write').tab('show');
+	},
+	'click #desc_preview': function (){
+		event.preventDefault();
+		// var description = document.getElementById("desc_in_modal").value;
+		// description = description.replace( /\r?\n/g, "\r\n" );
+		$('#desc_preview').tab('show');
+	},
+	'keyup #desc_in_modal': function () {
+		event.stopPropagation();
+		var desc = document.getElementById("desc_in_modal").value;
+		console.log('desc: ' + desc);
+		// desc = desc.replace( /\r?\n/g, "\r\n" );
+		// desc = desc.replace(/\s/g, " ");
+		// desc = desc.substr(4);
+		Session.set('desc', desc);
+		console.log('session: ' + Session.get('desc'));
 	}
 });
 
 Template.builddeck.helpers({
 	selected_class_tab: function () {
 		return Session.get('class');
+	},
+	description: function () {
+		return Session.get('desc');
 	},
 	current_card_count_in_deck: function () {
 		var total = 0;
@@ -164,7 +186,7 @@ Template.builddeck.helpers({
 		Deck.find({}).fetch().forEach(function(i){
 			total = total + i.count;
 		});
-		if (total == 30)
+		if (total == 4)
 			return '';
 		else
 			return 'disabled';

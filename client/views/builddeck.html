@@ -184,7 +184,26 @@
 					        <input type="text" id="deck_name_in_modal" class="form-control modal-title" placeholder="Enter deck name">{{#isolate}}{{save_error}}{{/isolate}}
 					      </div>
 					      <div class="modal-body" >
-					       	<textarea class="form-control" id="desc_in_modal" placeholder="Type a description for the deck" rows="3"></textarea>
+					      	{{#isolate}}
+					      	<ul class="nav nav-tabs">
+									  <li class="active"><a href="#write" id="desc_write">Write</a></li>
+									  <li><a href="#preview" id="desc_preview">Preview</a></li>
+									</ul>
+									{{/isolate}}
+									<div class="tab-content">
+										<div class="tab-pane active" id="write">
+											{{#isolate}}
+											<textarea class="form-control" id="desc_in_modal" rows="6"></textarea>
+							       	{{/isolate}}
+						       </div>
+									<div class="tab-pane" id="preview">
+											{{#isolate}}
+											{{#markdown}}
+												{{description}}
+											{{/markdown}}
+											{{/isolate}}
+									</div>
+					       </div>
 					      </div>
 					      <div class="modal-footer">
 					        <button type="button" class="btn btn-cancel" data-dismiss="modal">Close</button>
