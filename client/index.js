@@ -1,3 +1,10 @@
+Meteor.startup(function () {
+	Meteor.autorun(function () {
+		document.title = "Document title which is reactive";
+	});
+});
+
+
 Session.set('class', 'Druid');
 Session.set('cost', 'All');
 Session.set('neutral_selected', false);
