@@ -4,10 +4,16 @@
 			<div class="col-md-8 col-sm-12 col-xs-12">
 				<div class="row decks-top" >
 					<div class="col-md-9 toplatest">
+
+						{{#if user_deck_sub}}
+						<div>{{user_deck_sub_name}}'s Decks</div>
+						{{else}}
 						<div class="btn-group btn-group-lg">
 							<a href="/" type="button" class="btn btn-lg {{top_active}}">Top</a>
 							<a href="/latest" type="button" class="btn btn-lg {{latest_active}}">Latest</a>
 						</div>
+						{{/if}}
+
 					</div>
 					{{#isolate}}
 						<div class="col-md-3 selectclass">

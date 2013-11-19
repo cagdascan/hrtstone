@@ -14,7 +14,7 @@
 		<div class="col-md-7 unit name">
 			<a href="/deck/{{singledeck_url}}" class="name1">{{capitalize_and_shorten value.deckname}}</a>
 			<div class="name2">
-				<a><img src="{{value.userpicture}}">{{value.username}}
+				<a href="/user/{{value.username}}-{{value.userid}}"><img src="{{value.userpicture}}">{{value.username}}
 				</a>
 				<span>{{timeago value.timestamp}}</span>
 			</div>

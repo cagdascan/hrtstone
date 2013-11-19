@@ -1,7 +1,3 @@
-Template.decks.selected_class = function () {
-	return Session.get('selected_class');
-};
-
 Template.decks.events({
 	'click .decks-top .selectclass ul li a': function (event) {
 		Session.set('selected_class', $(event.currentTarget).text());
@@ -20,5 +16,18 @@ Template.decks.helpers({
 			return 'active';
 		else
 			return '';
+	},
+	user_deck_sub: function () {
+		if (Session.get('user_deck_sub') == true)
+			return true;
+		else
+			return false;
+	},
+	user_deck_sub_name: function () {
+		if (Decks.find().count() != 0)
+			return Decks.find().fetch()[0].username;
+	},
+	selected_class: function () {
+		return Session.get('selected_class');
 	}
 });

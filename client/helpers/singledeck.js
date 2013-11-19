@@ -3,7 +3,6 @@ Template.singledeck.rendered = function () {
 		Session.set('global_deckname', Decks.find().fetch()[0].deckname);
 		Session.set('global_classname', Decks.find().fetch()[0].class);
 		Session.set('global_username', Decks.find().fetch()[0].username);
-		console.log(Session.get('global_username'));
 	}
 };
 
