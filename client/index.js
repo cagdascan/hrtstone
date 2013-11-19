@@ -1,10 +1,11 @@
 Meteor.startup(function () {
 	Meteor.autorun(function () {
-		document.title = "Document title which is reactive";
+		document.title = "" + Session.get('pageTitle');
+		$('meta[name=description]').attr('content', Session.get('pageDescription'));
 	});
 });
 
-
+Session.set('slogan', "Hearthdecker, Hearthstone lovers' hub");
 Session.set('class', 'Druid');
 Session.set('cost', 'All');
 Session.set('neutral_selected', false);

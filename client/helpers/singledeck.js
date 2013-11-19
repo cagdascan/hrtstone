@@ -1,3 +1,12 @@
+Template.singledeck.rendered = function () {
+	if ( Decks.find().fetch()[0] != undefined) {
+		Session.set('global_deckname', Decks.find().fetch()[0].deckname);
+		Session.set('global_classname', Decks.find().fetch()[0].class);
+		Session.set('global_username', Decks.find().fetch()[0].username);
+		console.log(Session.get('global_username'));
+	}
+};
+
 Template.singledeck.helpers({
 	deck: function () {
 		return Decks.find({}, {sort: {'cost': 1}}).fetch(); 
