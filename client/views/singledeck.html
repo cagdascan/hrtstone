@@ -12,7 +12,7 @@
 				<div class="col2">
 					<h1>{{capitalize_and_shorten deckname}}</h1>
 					<div class="info1">
-						<a class="userway"><img src="{{userpicture}}"/>{{username}}</a><span>&nbsp;|&nbsp;{{timeago timestamp}}</span>
+						<a href="/user/{{userid}}" class="userway"><img src="{{userpicture}}"/>{{username}}</a><span>&nbsp;|&nbsp;{{timeago timestamp}}</span>
 					</div>
 				</div>
 				<div class="description">
@@ -35,14 +35,12 @@
 					<li>
 						<div class="col1">
 							<img src="{{userpicture}}"/>
-							
-								
 						</div>
 						<div class="col2">
 							<p>{{comment}}
 							</p>
 							<div class="whowhen">
-								by <a class="name">{{username}}</a>,
+								by <a href="/user/{{userid}}" class="name">{{username}}</a>,
 								<div class="timeago">{{timeago timestamp}}</div>
 							</div>
 						</div>
