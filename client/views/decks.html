@@ -1,9 +1,9 @@
 <template name="decks">																						
 	<div class="container decks">
 		<div class="row">
-			<div class="col-md-8 col-sm-12 col-xs-12">
+			<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
 				<div class="row decks-top" >
-					<div class="col-md-9 toplatest">
+					<div class="col-md-9 col-sm-8 toplatest">
 
 						{{#if user_deck_sub}}
 						<div class="user"><img src="http://www.gravatar.com/avatar/414df95f05814f2a01552957a4d092a7"><h1>{{user_deck_sub_name}}'s Decks</h1></div>
@@ -16,7 +16,7 @@
 
 					</div>
 					{{#isolate}}
-						<div class="col-md-3 selectclass">
+						<div class="col-md-3 col-sm-4 selectclass">
 							<div class="btn-group">
 							  <button type="button" class="btn dropdown-toggle btn-lg" data-toggle="dropdown">
 							    <span class="defselection pull-left {{{selected_class}}"></span>
@@ -41,7 +41,7 @@
 				</div>
 				{{> decklist}}
 			</div>
-			<div class="col-md-4 hidden-xs hidden-sm column2">
+			<div class="col-lg-4 hidden-md hidden-xs hidden-sm column2">
 				<div class="comeon">
 					<a href="/build-deck" class="btn btn-build btn-lg" >Build a Deck</a>
 					<h3><span style="font-weight:800;font-size:48px"><span style="font-weight:300">& </span>BLOW</span><br><span style="font-weight:800;font-size:33px"> OUR MINDS</span><br>

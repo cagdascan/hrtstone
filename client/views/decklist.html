@@ -2,16 +2,16 @@
 	{{#each key_value decks}}
 	<div class="row decklist">
 		
-		<div class="col-md-1 unit order">
+		<div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 unit order">
 			<a href="deck/{{singledeck_url}}">{{key}}
 			</a>
 		</div>
 			
-		<div class="col-md-1 unit upvote {{voted}}">
+		<div class="col-lg-1 col-md-1 col-sm-1 hidden-xs unit upvote {{voted}}">
 			<i class="fa fa-caret-up"></i>
 			<div>{{value.upvotes_count}}</div>
 		</div>
-		<div class="col-md-7 unit name">
+		<div class="col-lg-7 col-md-7 col-sm-7 col-xs-8 pull-left unit name">
 			<a href="/deck/{{singledeck_url}}" class="name1">{{capitalize_and_shorten value.deckname}}</a>
 			<div class="name2">
 				<a href="/user/{{value.username}}-{{value.userid}}"><img src="{{value.userpicture}}">{{value.username}}
@@ -20,11 +20,11 @@
 			</div>
 		</div>
 			
-		<div class="col-md-2 unit classes">
-			<span class="{{value.class}}"></span>{{value.class}}
+		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 unit classes">
+			<span class="{{value.class}}"></span><i class="hidden-xs" style="font-style:normal;">{{value.class}}</i>
 		</div>
 		
-		<a href="deck/{{singledeck_url}}" class="col-md-1 unit comments">
+		<a href="deck/{{singledeck_url}}" class="col-lg-1 col-md-1 col-sm-1 hidden-xs unit comments">
 			<i class="fa fa-comment"></i>
 			<div class="count">{{value.comments_count}}</div>
 		</a>
