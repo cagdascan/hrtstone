@@ -27,6 +27,10 @@ Template.decks.helpers({
 		if (Decks.find().count() != 0)
 			return Decks.find().fetch()[0].username;
 	},
+	user_deck_sub_avatar: function () {
+		if (Decks.find().count() != 0)
+			return Decks.find().fetch()[0].userpicture;
+	},
 	selected_class: function () {
 		return Session.get('selected_class');
 	}

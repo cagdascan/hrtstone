@@ -6,8 +6,8 @@ if (Meteor.isClient){
 		if (Meteor.Router.page() == 'builddeck'){ 
 	    var card_query = function(){
 	      return { $or:[
-	      							 {'class': Session.get('class')},
-	      							 {'class': ""}
+	      							 {'class': Session.get('class'), 'deckable': true},
+	      							 {'class': "Neutral", 'deckable': true}
 	      							]
 	      				 
 	      			 };
@@ -31,7 +31,7 @@ if (Meteor.isClient){
   		if (Session.get('neutral_selected') == true){
 				if (Session.get('cost') == 'All'){
 					var limited_array = [];
-					var card_array = Cards.find({'class': ""}).fetch();
+					var card_array = Cards.find({'class': "Neutral"}).fetch();
 
 					_.each(card_array, function(obj){limited_array.push(obj);});
 
@@ -92,27 +92,27 @@ if (Meteor.isClient){
 					else if (Session.get('page_number') == 26)
 						return limited_array.slice(208, 216);
 				}
-				else if (Session.get('cost') == '7+'){
+				else if (Session.get('cost') == '7'){
 					var limited_array = [];
 					var card_array = Cards.find(
 																			{$or:[
-																						{'class': "",
-																		 	 			 'cost' : '7'
+																						{'class': "Neutral",
+																		 	 			 'cost' : 7
 																		 	 			},
-																		 	 			{'class': "",
-																		 	 			 'cost' : '8'
+																		 	 			{'class': "Neutral",
+																		 	 			 'cost' : 8
 																		 	 			},
-																		 	 			{'class': "",
-																		 	 			 'cost' : '9'
+																		 	 			{'class': "Neutral",
+																		 	 			 'cost' : 9
 																		 	 			},
-																		 	 			{'class': "",
-																		 	 			 'cost' : '10'
+																		 	 			{'class': "Neutral",
+																		 	 			 'cost' : 10
 																		 	 			},
-																		 	 			{'class': "",
-																		 	 			 'cost' : '12'
+																		 	 			{'class': "Neutral",
+																		 	 			 'cost' : 12
 																		 	 			},
-																		 	 			{'class': "",
-																		 	 		   'cost' : '20'
+																		 	 			{'class': "Neutral",
+																		 	 		   'cost' : 20
 																		 	 		  }
 																		 	 		 ]
 																			}).fetch();
@@ -128,7 +128,7 @@ if (Meteor.isClient){
 				}
 				else{
 					var limited_array = [];
-					var card_array = Cards.find({'class': "",
+					var card_array = Cards.find({'class': "Neutral",
 																		 	 'cost' : Session.get('cost')
 																			}).fetch();
 					Session.set('page_count', Math.ceil(card_array.length / 8));
@@ -179,27 +179,27 @@ if (Meteor.isClient){
 					else if (Session.get('page_number') == 6)
 						return limited_array.slice(48, 56);
 				}
-				else if (Session.get('cost') == '7+'){
+				else if (Session.get('cost') == '7'){
 					var limited_array = [];
 					var card_array = Cards.find(
 																			{$or:[
 																						{'class': Session.get('class'),
-																		 	 			 'cost' : '7'
+																		 	 			 'cost' : 7
 																		 	 			},
 																		 	 			{'class': Session.get('class'),
-																		 	 			 'cost' : '8'
+																		 	 			 'cost' : 8
 																		 	 			},
 																		 	 			{'class': Session.get('class'),
-																		 	 			 'cost' : '9'
+																		 	 			 'cost' : 9
 																		 	 			},
 																		 	 			{'class': Session.get('class'),
-																		 	 			 'cost' : '10'
+																		 	 			 'cost' : 10
 																		 	 			},
 																		 	 			{'class': Session.get('class'),
-																		 	 			 'cost' : '12'
+																		 	 			 'cost' : 12
 																		 	 			},
 																		 	 			{'class': Session.get('class'),
-																		 	 			 'cost' : '20'
+																		 	 			 'cost' : 20
 																		 	 			}
 																		 	 		 ]
 																			}).fetch();

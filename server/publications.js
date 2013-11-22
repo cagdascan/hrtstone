@@ -1,6 +1,11 @@
 //*** Cards publication ***///
 Meteor.publish("cards01", function (card_query){
-	return Cards.find(card_query, {sort: {'cost': 1}});
+	return Cards.find(card_query, 
+                    {fields: {set       :0, 
+                              how_to_get:0, 
+                              strategy  :0, 
+                              lore      :0}, // do not publish this fields
+                     sort: {'cost': 1}});
 });
 
 //*** Decks publication ***///
@@ -69,7 +74,7 @@ Lists.allow({
 //*** Comments allow deny rules ***///
 Comments.allow({
   insert: function(userId, doc){
-    if (doc.userid === userId)
+    if (doc.userid === userId && (doc.timestamp instanceof Date))
       return true;
   },
   update: function(userId, doc, fieldNames, modifier) {

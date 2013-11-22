@@ -2,6 +2,7 @@
 	<div class="container builddeck">
 		<div class="row">
 			<div class="col-md-1 filter1">
+				{{#isolate}}
 				<ul id="classes">
 					<li id="Druid" class="{{druid_class_active}}" ><span></span></li>
 					<li id="Hunter" class="{{hunter_class_active}}"><span></span></li>
@@ -13,26 +14,27 @@
 					<li id="Warlock" class="{{warlock_class_active}}"><span></span></li>
 					<li id="Warrior" class="{{warrior_class_active}}"><span></span></li>
 				</ul>
+				{{/isolate}}
 			</div>
 			<div class="col-md-1 filter2">
-				<ul>
-					<li>Battle Cry</li>
-					<li>Stealth</li>
-					<li>Charge</li>
-					<li>Combo</li>
-					<li>Death Battle</li>
-					<li>Divine Shield</li>
-					<li>Choose One</li>
-					<li>Enrage</li>
-					<li>Freeze</li>
-					<li>Overload</li>
-					<li>Secret</li>
-					<li>Silence</li>
-					<li>Spell Damage</li>
-					<li>Summon</li>
-					<li>Transform</li>
-					<li>Windfurry</li>
-					<li>Taunt</li>
+				<ul id="abilities">
+					<li class="ability" data-value="Battlecry">Battlecry</li>
+					<li class="ability" data-value="Stealth">Stealth</li>
+					<li class="ability" data-value="Charge">Charge</li>
+					<li class="ability" data-value="Combo">Combo</li>
+					<li class="ability" data-value="Deathrattle">Deathrattle</li>
+					<li class="ability" data-value="Divine Shield">Divine Shield</li>
+					<li class="ability" data-value="Choose One">Choose One</li>
+					<li class="ability" data-value="Enrage">Enrage</li>
+					<li class="ability" data-value="Freeze">Freeze</li>
+					<li class="ability" data-value="Overload">Overload</li>
+					<li class="ability" data-value="Secret">Secret</li>
+					<li class="ability" data-value="Silence">Silence</li>
+					<li class="ability" data-value="Spell Damage">Spell Damage</li>
+					<li class="ability" data-value="Summon">Summon</li>
+					<li class="ability" data-value="Transform">Transform</li>
+					<li class="ability" data-value="Windfury">Windfury</li>
+					<li class="ability" data-value="Taunt">Taunt</li>
 					<li></li>
 				</ul>
 			</div>

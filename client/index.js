@@ -17,6 +17,7 @@ Session.set('deck_limit', 10);
 Session.set('save_error', '');
 Session.set('current_comment', '');
 Session.set('desc', '');
+Session.set('abilities', []);
 
 Deck = new Meteor.Collection(null); //local collection for deck building
 

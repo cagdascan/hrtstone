@@ -14,6 +14,7 @@ Template.builddeck.events({
 			Session.set('neutral_selected', false);
 			Session.set('class', selected_class);
 			Session.set('cost', 'All');
+			Session.set('abilities', []);
 			$('#deck_name').val('');
 			//*** reset mana filter ***///
 			$('.filter3 ul.manas li').removeClass('active');
@@ -28,6 +29,7 @@ Template.builddeck.events({
 		Session.set('neutral_selected', false);
 		Session.set('class', Session.get('selected_class_id'));
 		Session.set('cost', 'All');
+		Session.set('abilities', []);
 		$('.filter1 ul#classes li').removeClass('active');
 		$('.filter3 ul.manas li').removeClass('active');
 		$('#all').addClass('active');
@@ -42,6 +44,9 @@ Template.builddeck.events({
 	///*************** Mana filtering **************** ///
 	'click ul.manas li': function (event) {
 		var selected_cost = $(event.currentTarget).text();
+		if (selected_cost != 'All'){
+			selected_cost = parseInt(selected_cost); // string to num conversion
+		}
 		Session.set('cost', selected_cost);
 		$( '.filter3 ul.manas li').removeClass('active');
 		$(event.currentTarget).addClass('active');
@@ -66,8 +71,35 @@ Template.builddeck.events({
 		Session.set('page_number', (Session.get('page_number') - 1 ) % Session.get('page_count'));
 	},
 	///****** Filter cards with left abilities navigation *******///
-	'click .filter2 ul li': function (event){
-		$(event.currentTarget).toggleClass('active');
+	'click li.ability': function(event) {
+  	// console.log($(event.currentTarget).html());
+  	// if ($(event.currentTarget).find('.active') == true)
+  	// 	console.log('active');
+  	// else
+  	// 	console.log('not active');
+  	// var abilities = Session.get('abilities');
+  	// abilities.push($(event.currentTarget).html());
+  	// Session.set('abilities', abilities);
+
+
+      $(event.currentTarget).toggleClass('active');
+
+      var values = [];
+      if ($('ul#abilities').find('.active').html() == undefined){
+        Session.set('abilities', []);
+      }
+      else
+      {
+        $('ul#abilities').find('.active').each( function() {
+          values.push($(this).html());
+          Session.set('abilities', values);
+        });
+      }
+
+
+
+
+
 	},
 	///******* Remove cards from your current deck **********///
 	'click .filter4 .cardlist li': function () {
@@ -167,12 +199,11 @@ Template.builddeck.events({
 		Session.set('desc', desc);
 	},
 	'click i#markdown-info': function () {
-		console.log('markdown');
 		$('#markdown-info').popover({placement: 'right',
 																 content: 'hey',
 																 title: 'You can use markdown here!',
 																 html: true,
-																 content: '<h2>lols</h2>'
+																 content: ''
 																});
 	}
 });
@@ -199,7 +230,7 @@ Template.builddeck.helpers({
 		Deck.find({}).fetch().forEach(function(i){
 			total = total + i.count;
 		});
-		if (total == 4)
+		if (total == 30)
 			return '';
 		else
 			return 'disabled';
@@ -280,34 +311,34 @@ Template.builddeck.helpers({
 		var total_6 = 0;
 		var total_7 = 0;
 		var total = 0;
-		Deck.find({'cost': '0'}).fetch().forEach(function(i){
+		Deck.find({'cost': 0}).fetch().forEach(function(i){
 			total_0 = total_0 + i.count;
 		});
-		Deck.find({'cost': '1'}).fetch().forEach(function(i){
+		Deck.find({'cost': 1}).fetch().forEach(function(i){
 			total_1 = total_1 + i.count;
 		});
-		Deck.find({'cost': '2'}).fetch().forEach(function(i){
+		Deck.find({'cost': 2}).fetch().forEach(function(i){
 			total_2 = total_2 + i.count;
 		});
-		Deck.find({'cost': '3'}).fetch().forEach(function(i){
+		Deck.find({'cost': 3}).fetch().forEach(function(i){
 			total_3 = total_3 + i.count;
 		});
-		Deck.find({'cost': '4'}).fetch().forEach(function(i){
+		Deck.find({'cost': 4}).fetch().forEach(function(i){
 			total_4 = total_4 + i.count;
 		});
-		Deck.find({'cost': '5'}).fetch().forEach(function(i){
+		Deck.find({'cost': 5}).fetch().forEach(function(i){
 			total_5 = total_5 + i.count;
 		});
-		Deck.find({'cost': '6'}).fetch().forEach(function(i){
+		Deck.find({'cost': 6}).fetch().forEach(function(i){
 			total_6 = total_6 + i.count;
 		});
 		Deck.find({$or:[
-										{'cost' : '7'},
-										{'cost' : '8'},
-										{'cost' : '9'},
-										{'cost' : '10'},
-										{'cost' : '12'},
-										{'cost' : '20'},
+										{'cost' : 7},
+										{'cost' : 8},
+										{'cost' : 9},
+										{'cost' : 10},
+										{'cost' : 12},
+										{'cost' : 20},
 						 	 		 ]
 							}).fetch().forEach(function(i){
 			total_7 = total_7 + i.count;
@@ -331,7 +362,7 @@ Template.builddeck.helpers({
 	},
 	mana_count_0: function () {
 		var total = 0;
-		Deck.find({'cost': '0'}).fetch().forEach(function(i){
+		Deck.find({'cost': 0}).fetch().forEach(function(i){
 			total = total + i.count;
 		});
 		return total;
@@ -346,33 +377,33 @@ Template.builddeck.helpers({
 		var total_6 = 0;
 		var total_7 = 0;
 		var total = 0;
-		Deck.find({'cost': '0'}).fetch().forEach(function(i){
+		Deck.find({'cost': 0}).fetch().forEach(function(i){
 			total_0 = total_0 + i.count;
 		});
-		Deck.find({'cost': '1'}).fetch().forEach(function(i){
+		Deck.find({'cost': 1}).fetch().forEach(function(i){
 			total_1 = total_1 + i.count;
 		});
-		Deck.find({'cost': '2'}).fetch().forEach(function(i){
+		Deck.find({'cost': 2}).fetch().forEach(function(i){
 			total_2 = total_2 + i.count;
 		});
-		Deck.find({'cost': '3'}).fetch().forEach(function(i){
+		Deck.find({'cost': 3}).fetch().forEach(function(i){
 			total_3 = total_3 + i.count;
 		});
-		Deck.find({'cost': '4'}).fetch().forEach(function(i){
+		Deck.find({'cost': 4}).fetch().forEach(function(i){
 			total_4 = total_4 + i.count;
 		});
-		Deck.find({'cost': '5'}).fetch().forEach(function(i){
+		Deck.find({'cost': 5}).fetch().forEach(function(i){
 			total_5 = total_5 + i.count;
 		});
-		Deck.find({'cost': '6'}).fetch().forEach(function(i){
+		Deck.find({'cost': 6}).fetch().forEach(function(i){
 			total_6 = total_6 + i.count;
 		});
 		Deck.find({$or:[
-										{'cost' : '7'},
-										{'cost' : '8'},
-										{'cost' : '9'},
-										{'cost' : '10'},
-										{'cost' : '12'},
+										{'cost' : 7},
+										{'cost' : 8},
+										{'cost' : 9},
+										{'cost' : 10},
+										{'cost' : 12},
 										{'cost' : '20'},
 						 	 		 ]
 							}).fetch().forEach(function(i){
@@ -397,7 +428,7 @@ Template.builddeck.helpers({
 	},
 	mana_count_1: function () {
 		var total = 0;
-		Deck.find({'cost': '1'}).fetch().forEach(function(i){
+		Deck.find({'cost': 1}).fetch().forEach(function(i){
 			total = total + i.count;
 		});
 		return total;
@@ -412,34 +443,34 @@ Template.builddeck.helpers({
 		var total_6 = 0;
 		var total_7 = 0;
 		var total = 0;
-		Deck.find({'cost': '0'}).fetch().forEach(function(i){
+		Deck.find({'cost': 0}).fetch().forEach(function(i){
 			total_0 = total_0 + i.count;
 		});
-		Deck.find({'cost': '1'}).fetch().forEach(function(i){
+		Deck.find({'cost': 1}).fetch().forEach(function(i){
 			total_1 = total_1 + i.count;
 		});
-		Deck.find({'cost': '2'}).fetch().forEach(function(i){
+		Deck.find({'cost': 2}).fetch().forEach(function(i){
 			total_2 = total_2 + i.count;
 		});
-		Deck.find({'cost': '3'}).fetch().forEach(function(i){
+		Deck.find({'cost': 3}).fetch().forEach(function(i){
 			total_3 = total_3 + i.count;
 		});
-		Deck.find({'cost': '4'}).fetch().forEach(function(i){
+		Deck.find({'cost': 4}).fetch().forEach(function(i){
 			total_4 = total_4 + i.count;
 		});
-		Deck.find({'cost': '5'}).fetch().forEach(function(i){
+		Deck.find({'cost': 5}).fetch().forEach(function(i){
 			total_5 = total_5 + i.count;
 		});
-		Deck.find({'cost': '6'}).fetch().forEach(function(i){
+		Deck.find({'cost': 6}).fetch().forEach(function(i){
 			total_6 = total_6 + i.count;
 		});
 		Deck.find({$or:[
-										{'cost' : '7'},
-										{'cost' : '8'},
-										{'cost' : '9'},
-										{'cost' : '10'},
-										{'cost' : '12'},
-										{'cost' : '20'},
+										{'cost' : 7},
+										{'cost' : 8},
+										{'cost' : 9},
+										{'cost' : 10},
+										{'cost' : 12},
+										{'cost' : 20},
 						 	 		 ]
 							}).fetch().forEach(function(i){
 			total_7 = total_7 + i.count;
@@ -463,7 +494,7 @@ Template.builddeck.helpers({
 	},
 	mana_count_2: function () {
 		var total = 0;
-		Deck.find({'cost': '2'}).fetch().forEach(function(i){
+		Deck.find({'cost': 2}).fetch().forEach(function(i){
 			total = total + i.count;
 		});
 		return total;
@@ -478,34 +509,34 @@ Template.builddeck.helpers({
 		var total_6 = 0;
 		var total_7 = 0;
 		var total = 0;
-		Deck.find({'cost': '0'}).fetch().forEach(function(i){
+		Deck.find({'cost': 0}).fetch().forEach(function(i){
 			total_0 = total_0 + i.count;
 		});
-		Deck.find({'cost': '1'}).fetch().forEach(function(i){
+		Deck.find({'cost': 1}).fetch().forEach(function(i){
 			total_1 = total_1 + i.count;
 		});
-		Deck.find({'cost': '2'}).fetch().forEach(function(i){
+		Deck.find({'cost': 2}).fetch().forEach(function(i){
 			total_2 = total_2 + i.count;
 		});
-		Deck.find({'cost': '3'}).fetch().forEach(function(i){
+		Deck.find({'cost': 3}).fetch().forEach(function(i){
 			total_3 = total_3 + i.count;
 		});
-		Deck.find({'cost': '4'}).fetch().forEach(function(i){
+		Deck.find({'cost': 4}).fetch().forEach(function(i){
 			total_4 = total_4 + i.count;
 		});
-		Deck.find({'cost': '5'}).fetch().forEach(function(i){
+		Deck.find({'cost': 5}).fetch().forEach(function(i){
 			total_5 = total_5 + i.count;
 		});
-		Deck.find({'cost': '6'}).fetch().forEach(function(i){
+		Deck.find({'cost': 6}).fetch().forEach(function(i){
 			total_6 = total_6 + i.count;
 		});
 		Deck.find({$or:[
-										{'cost' : '7'},
-										{'cost' : '8'},
-										{'cost' : '9'},
-										{'cost' : '10'},
-										{'cost' : '12'},
-										{'cost' : '20'},
+										{'cost' : 7},
+										{'cost' : 8},
+										{'cost' : 9},
+										{'cost' : 10},
+										{'cost' : 12},
+										{'cost' : 20},
 						 	 		 ]
 							}).fetch().forEach(function(i){
 			total_7 = total_7 + i.count;
@@ -529,7 +560,7 @@ Template.builddeck.helpers({
 	},
 	mana_count_3: function () {
 		var total = 0;
-		Deck.find({'cost': '3'}).fetch().forEach(function(i){
+		Deck.find({'cost': 3}).fetch().forEach(function(i){
 			total = total + i.count;
 		});
 		return total;
@@ -544,34 +575,34 @@ Template.builddeck.helpers({
 		var total_6 = 0;
 		var total_7 = 0;
 		var total = 0;
-		Deck.find({'cost': '0'}).fetch().forEach(function(i){
+		Deck.find({'cost': 0}).fetch().forEach(function(i){
 			total_0 = total_0 + i.count;
 		});
-		Deck.find({'cost': '1'}).fetch().forEach(function(i){
+		Deck.find({'cost': 1}).fetch().forEach(function(i){
 			total_1 = total_1 + i.count;
 		});
-		Deck.find({'cost': '2'}).fetch().forEach(function(i){
+		Deck.find({'cost': 2}).fetch().forEach(function(i){
 			total_2 = total_2 + i.count;
 		});
-		Deck.find({'cost': '3'}).fetch().forEach(function(i){
+		Deck.find({'cost': 3}).fetch().forEach(function(i){
 			total_3 = total_3 + i.count;
 		});
-		Deck.find({'cost': '4'}).fetch().forEach(function(i){
+		Deck.find({'cost': 4}).fetch().forEach(function(i){
 			total_4 = total_4 + i.count;
 		});
-		Deck.find({'cost': '5'}).fetch().forEach(function(i){
+		Deck.find({'cost': 5}).fetch().forEach(function(i){
 			total_5 = total_5 + i.count;
 		});
-		Deck.find({'cost': '6'}).fetch().forEach(function(i){
+		Deck.find({'cost': 6}).fetch().forEach(function(i){
 			total_6 = total_6 + i.count;
 		});
 		Deck.find({$or:[
-										{'cost' : '7'},
-										{'cost' : '8'},
-										{'cost' : '9'},
-										{'cost' : '10'},
-										{'cost' : '12'},
-										{'cost' : '20'},
+										{'cost' : 7},
+										{'cost' : 8},
+										{'cost' : 9},
+										{'cost' : 10},
+										{'cost' : 12},
+										{'cost' : 20},
 						 	 		 ]
 							}).fetch().forEach(function(i){
 			total_7 = total_7 + i.count;
@@ -595,7 +626,7 @@ Template.builddeck.helpers({
 	},
 	mana_count_4: function () {
 		var total = 0;
-		Deck.find({'cost': '4'}).fetch().forEach(function(i){
+		Deck.find({'cost': 4}).fetch().forEach(function(i){
 			total = total + i.count;
 		});
 		return total;
@@ -610,34 +641,34 @@ Template.builddeck.helpers({
 		var total_6 = 0;
 		var total_7 = 0;
 		var total = 0;
-		Deck.find({'cost': '0'}).fetch().forEach(function(i){
+		Deck.find({'cost': 0}).fetch().forEach(function(i){
 			total_0 = total_0 + i.count;
 		});
-		Deck.find({'cost': '1'}).fetch().forEach(function(i){
+		Deck.find({'cost': 1}).fetch().forEach(function(i){
 			total_1 = total_1 + i.count;
 		});
-		Deck.find({'cost': '2'}).fetch().forEach(function(i){
+		Deck.find({'cost': 2}).fetch().forEach(function(i){
 			total_2 = total_2 + i.count;
 		});
-		Deck.find({'cost': '3'}).fetch().forEach(function(i){
+		Deck.find({'cost': 3}).fetch().forEach(function(i){
 			total_3 = total_3 + i.count;
 		});
-		Deck.find({'cost': '4'}).fetch().forEach(function(i){
+		Deck.find({'cost': 4}).fetch().forEach(function(i){
 			total_4 = total_4 + i.count;
 		});
-		Deck.find({'cost': '5'}).fetch().forEach(function(i){
+		Deck.find({'cost': 5}).fetch().forEach(function(i){
 			total_5 = total_5 + i.count;
 		});
-		Deck.find({'cost': '6'}).fetch().forEach(function(i){
+		Deck.find({'cost': 6}).fetch().forEach(function(i){
 			total_6 = total_6 + i.count;
 		});
 		Deck.find({$or:[
-										{'cost' : '7'},
-										{'cost' : '8'},
-										{'cost' : '9'},
-										{'cost' : '10'},
-										{'cost' : '12'},
-										{'cost' : '20'},
+										{'cost' : 7},
+										{'cost' : 8},
+										{'cost' : 9},
+										{'cost' : 10},
+										{'cost' : 12},
+										{'cost' : 20},
 						 	 		 ]
 							}).fetch().forEach(function(i){
 			total_7 = total_7 + i.count;
@@ -661,7 +692,7 @@ Template.builddeck.helpers({
 	},
 	mana_count_5: function () {
 		var total = 0;
-		Deck.find({'cost': '5'}).fetch().forEach(function(i){
+		Deck.find({'cost': 5}).fetch().forEach(function(i){
 			total = total + i.count;
 		});
 		return total;
@@ -676,34 +707,34 @@ Template.builddeck.helpers({
 		var total_6 = 0;
 		var total_7 = 0;
 		var total = 0;
-		Deck.find({'cost': '0'}).fetch().forEach(function(i){
+		Deck.find({'cost': 0}).fetch().forEach(function(i){
 			total_0 = total_0 + i.count;
 		});
-		Deck.find({'cost': '1'}).fetch().forEach(function(i){
+		Deck.find({'cost': 1}).fetch().forEach(function(i){
 			total_1 = total_1 + i.count;
 		});
-		Deck.find({'cost': '2'}).fetch().forEach(function(i){
+		Deck.find({'cost': 2}).fetch().forEach(function(i){
 			total_2 = total_2 + i.count;
 		});
-		Deck.find({'cost': '3'}).fetch().forEach(function(i){
+		Deck.find({'cost': 3}).fetch().forEach(function(i){
 			total_3 = total_3 + i.count;
 		});
-		Deck.find({'cost': '4'}).fetch().forEach(function(i){
+		Deck.find({'cost': 4}).fetch().forEach(function(i){
 			total_4 = total_4 + i.count;
 		});
-		Deck.find({'cost': '5'}).fetch().forEach(function(i){
+		Deck.find({'cost': 5}).fetch().forEach(function(i){
 			total_5 = total_5 + i.count;
 		});
-		Deck.find({'cost': '6'}).fetch().forEach(function(i){
+		Deck.find({'cost': 6}).fetch().forEach(function(i){
 			total_6 = total_6 + i.count;
 		});
 		Deck.find({$or:[
-										{'cost' : '7'},
-										{'cost' : '8'},
-										{'cost' : '9'},
-										{'cost' : '10'},
-										{'cost' : '12'},
-										{'cost' : '20'},
+										{'cost' : 7},
+										{'cost' : 8},
+										{'cost' : 9},
+										{'cost' : 10},
+										{'cost' : 12},
+										{'cost' : 20},
 						 	 		 ]
 							}).fetch().forEach(function(i){
 			total_7 = total_7 + i.count;
@@ -727,7 +758,7 @@ Template.builddeck.helpers({
 	},
 	mana_count_6: function () {
 		var total = 0;
-		Deck.find({'cost': '6'}).fetch().forEach(function(i){
+		Deck.find({'cost': 6}).fetch().forEach(function(i){
 			total = total + i.count;
 		});
 		return total;
@@ -742,34 +773,34 @@ Template.builddeck.helpers({
 		var total_6 = 0;
 		var total_7 = 0;
 		var total = 0;
-		Deck.find({'cost': '0'}).fetch().forEach(function(i){
+		Deck.find({'cost': 0}).fetch().forEach(function(i){
 			total_0 = total_0 + i.count;
 		});
-		Deck.find({'cost': '1'}).fetch().forEach(function(i){
+		Deck.find({'cost': 1}).fetch().forEach(function(i){
 			total_1 = total_1 + i.count;
 		});
-		Deck.find({'cost': '2'}).fetch().forEach(function(i){
+		Deck.find({'cost': 2}).fetch().forEach(function(i){
 			total_2 = total_2 + i.count;
 		});
-		Deck.find({'cost': '3'}).fetch().forEach(function(i){
+		Deck.find({'cost': 3}).fetch().forEach(function(i){
 			total_3 = total_3 + i.count;
 		});
-		Deck.find({'cost': '4'}).fetch().forEach(function(i){
+		Deck.find({'cost': 4}).fetch().forEach(function(i){
 			total_4 = total_4 + i.count;
 		});
-		Deck.find({'cost': '5'}).fetch().forEach(function(i){
+		Deck.find({'cost': 5}).fetch().forEach(function(i){
 			total_5 = total_5 + i.count;
 		});
-		Deck.find({'cost': '6'}).fetch().forEach(function(i){
+		Deck.find({'cost': 6}).fetch().forEach(function(i){
 			total_6 = total_6 + i.count;
 		});
 		Deck.find({$or:[
-										{'cost' : '7'},
-										{'cost' : '8'},
-										{'cost' : '9'},
-										{'cost' : '10'},
-										{'cost' : '12'},
-										{'cost' : '20'},
+										{'cost' : 7},
+										{'cost' : 8},
+										{'cost' : 9},
+										{'cost' : 10},
+										{'cost' : 12},
+										{'cost' : 20},
 						 	 		 ]
 							}).fetch().forEach(function(i){
 			total_7 = total_7 + i.count;
@@ -794,12 +825,12 @@ Template.builddeck.helpers({
 	mana_count_7: function () {
 		var total = 0;
 		Deck.find({$or:[
-										{'cost' : '7'},
-										{'cost' : '8'},
-										{'cost' : '9'},
-										{'cost' : '10'},
-										{'cost' : '12'},
-										{'cost' : '20'},
+										{'cost' : 7},
+										{'cost' : 8},
+										{'cost' : 9},
+										{'cost' : 10},
+										{'cost' : 12},
+										{'cost' : 20},
 						 	 		 ]
 							}).fetch().forEach(function(i){
 			total = total + i.count;
@@ -836,6 +867,10 @@ Template.builddeck.rendered = function () {
 		$('.arrow_right').hide();
 	else
 		$('.arrow_right').show();
+
+	Session.get('abilities').forEach(function(ability){ 
+    $("li[data-value='" + ability + "']").addClass('active');
+  });
 
 };
 
