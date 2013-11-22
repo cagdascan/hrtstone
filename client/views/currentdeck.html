@@ -3,16 +3,16 @@
 	<ul class="cardlist">
 	{{#each card}}
 		<li style="background: url(http://s3.amazonaws.com/hearthstoner/cards/{{cardid}}.jpg) no-repeat 48px -35px;background-size:100%;">
-			<div class="cards_container">
-				<span class="mana">{{cost}}</span>
-				<span class="name">{{name}}</span>
+			<div class="cards_container cannotbeselected">
+				<span class="mana cannotbeselected">{{cost}}</span>
+				<span class="name cannotbeselected">{{name}}</span>
 				{{#if legendary}}
-					<span class="count">
+					<span class="count cannotbeselected">
 						<i class="fa fa-star"></i>
 					</span>
 					{{else}}
 					{{#if more_than_one}}
-					<span class="count">
+					<span class="count cannotbeselected">
 						{{count}}
 					</span>
 					{{/if}}

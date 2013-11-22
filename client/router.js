@@ -38,5 +38,15 @@ Meteor.Router.add({
 							Session.set('deck_sort', 'top');
 							Session.set('user_deck_sub', true);
 							return 'decks';
-							}
+							},
+	'/terms-of-service'		:function () {
+							Session.set('pageTitle', Session.get('slogan'));
+							Session.set('pageDescription', 'Hearthingo - Terms of Service');
+							return 'terms';
+						},
+	'/privacy-policy'		:function () {
+							Session.set('pageTitle', Session.get('slogan'));
+							Session.set('pageDescription', 'Hearthingo - Privacy Policy');
+							return 'privacy';
+						}
 });
