@@ -200,21 +200,23 @@ body {
 		margin-top 10px
 		text-align center
 		border-top 1px solid fuipreclouds
-
+		font-size 11px
+		a {
+			margin 5px
+			font-size 11px
+		}
 	}
 	.decks {
 		.decks-top {
-			margin-bottom 15px
+			margin-bottom 10px
 			.toplatest {
+				margin-bottom	5px
 				.btn {
 					border none
 					background fuipreclouds
 					color fuiwetasphalt
 					text-shadow none
 					line-height 25px
-					// height 56px
-
-
 					&:active, &.active, &:hover {
 						border none
 						background fuiamethyst
@@ -251,6 +253,7 @@ body {
 			}
 			.selectclass {
 				.btn-group {
+					margin-bottom	5px
 					width 100%
 					.btn {
 						width 100%
@@ -382,6 +385,7 @@ body {
 			.unit {
 				height 64px
 				line-height 64px
+				float left
 			}
 			.order {
 				padding-right 0
@@ -1585,6 +1589,9 @@ body {
 										font-size 16px
 										font-family font_standart !important
 									}
+									#markdown-info:hover {
+										cursor pointer
+									}
 								}
 								.modal-footer {
 									margin 0
@@ -1631,6 +1638,15 @@ body {
 					}
 				}
 			}
+		}
+	}
+	.static {
+		h1, h2, h3 {
+			font-family font_standart
+		}
+		h1 {
+			border-bottom 1px solid fuisilver
+			padding 5px 0
 		}
 	}
 }
