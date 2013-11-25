@@ -12,7 +12,7 @@
 						<ul class="infobadges">
 							<li class="color-gray1">
 								<div class="title">CLASS</div>
-								<div class="info"><span>{{card_class}}</span></div>
+								<div class="info"><span>{{class}}</span></div>
 							</li>
 							<li class="{{rarity}}">
 								<div class="title">RARITY</div>
@@ -38,27 +38,33 @@
 								<div class="title">TYPE</div>
 								<div class="info"><span>{{type}}</span></div>
 							</li>
+							{{#if subtype_empty}}
+							{{else}}
 							<li class="color-turquoise2">
 								<div class="title">SUBTYPE</div>
 								<div class="info"><span>{{subtype}}</span></div>
 							</li>
+							{{/if}}
 						</ul>
 						<ul class="infobadges">
+							{{#if ability_empty}}
+							{{else}}
 							{{#each ability}}
 							<li class="color-orange1">
 								<div class="title">ABILITY</div>
-								<div class="info"><span>{{this.ability}}</span></div>
+								<div class="info"><span>{{this}}</span></div>
 							</li>
 							{{/each}}
+							{{/if}}
 						</ul>
 					</div>
 				</div>
 				<div class="row bigtexts">
 					<div class="col-md-12">
-						<div class="unit">
+						<!-- <div class="unit">
 							<h3>HOW TO GET</h3>
-							<p>{{how_to_get}}</p>
-						</div>
+							<p>{{!how_to_get}}</p>
+						</div> -->
 
 						<div class="unit">
 							<h3>CARD TEXT</h3>
@@ -70,14 +76,14 @@
 							<p>{{flavourtext}}</p>
 						</div>
 
-						<div class="unit">
+						<!-- <div class="unit">
 							<h3>STRATEGY</h3>
-							<p>{{strategy}}</p>
-						</div>
-						<div class="unit">
+							<p>{{!strategy}}</p>
+						</div> -->
+						<!-- <div class="unit">
 							<h3>LORE</h3>
-							<p>{{lore}}</p>
-						</div>
+							<p>{{!lore}}</p>
+						</div> -->
 						<div class="unit" style="text-align:right !important;">
 							<h3 style="text-align:right !important;">ARTIST</h3>
 							<p>{{artist}}</p>

@@ -8,27 +8,27 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a href="../" class="navbar-brand">Hearthstone</a>
+	      <a href="../" class="navbar-brand">Hearthingo</a>
 	    </div>
 	    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
 	      <ul class="nav navbar-nav">
 	        <li id="decks">
 	          <a href="/">DECKS <img src="/img/deck.png"/ style="margin-top:-4px;"/> </a>
 	        </li>
+
 <!-- 	        <li id="cards">
 	          <a href="../css">CARDS<img src="/img/card.png"/ style="margin-top:-2px;"/></a>
 	        </li> -->
+
 	        <li class ="visible-xs visible-sm" id="build">
-	          <a href="../components">BUILD YOUR DECK</a>
+	          <a href="/build-deck">BUILD YOUR DECK</a>
 	        </li>
 	      </ul>
 	      <ul class="nav navbar-nav navbar-right">
-	      	{{#if currentUser}}
 	      	<li>
+	      	{{#if currentUser}}
 	      		<img src="{{avatar}}" class="img-circle pull-left" height="50px;" width="50px;" style="margin-left:15px;"/>
-
 	      	{{/if}}
-
 	          <a class="pull-left" href="#">{{loginButtons}}</a>
 	        </li>
 	      </ul>

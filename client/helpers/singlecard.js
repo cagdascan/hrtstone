@@ -13,10 +13,16 @@ Template.singlecard.helpers({
 	card: function () {
 		return Cards.find();
 	},
-	card_class: function () {
-		if (this.class == '')
-			return 'Neutral'
+	subtype_empty: function () {
+		if (this.subtype != '')
+			return false;
 		else
-			return this.class;
+			return true;
+	},
+	ability_empty: function () {
+		if (this.ability.length != 0)
+			return false;
+		else
+			return true;
 	}
 });

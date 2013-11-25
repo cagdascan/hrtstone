@@ -10,7 +10,7 @@ if (Meteor.isClient){
       deckid = deckid ();
 
       limit = function (){
-        return 20;
+        return 30; // comment limit per deck
       }
       limit = limit();
     }

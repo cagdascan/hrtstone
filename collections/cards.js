@@ -5,12 +5,31 @@ if (Meteor.isClient){
 	Deps.autorun(function() {
 		if (Meteor.Router.page() == 'builddeck'){ 
 	    var card_query = function(){
-	      return { $or:[
-	      							 {'class': Session.get('class')},
-	      							 {'class': ""}
+	    	if (Session.get('abilities').length == 0){
+	    		return { $or:[
+	      							 {'class'    : Session.get('class'), 
+	      							  'deckable' : true
+	      							 },
+	      							 {'class'		 : "Neutral", 
+	      							  'deckable' : true
+	      							 }
 	      							]
 	      				 
-	      			 };
+	      			 };	
+	    	}
+	    	else
+		      return { $or:[
+		      							 {'class'    : Session.get('class'), 
+		      							  'deckable' : true,
+		      							  'ability'  : {$all:Session.get('abilities')}
+		      							 },
+		      							 {'class'		 : "Neutral", 
+		      							  'deckable' : true,
+		      							  'ability'  : {$all:Session.get('abilities')}
+		      							 }
+		      							]
+		      				 
+		      			 };
 	    }
 	    card_query = card_query();
 	  }
@@ -31,7 +50,11 @@ if (Meteor.isClient){
   		if (Session.get('neutral_selected') == true){
 				if (Session.get('cost') == 'All'){
 					var limited_array = [];
-					var card_array = Cards.find({'class': ""}).fetch();
+					var card_array = Cards.find({'class': "Neutral", 
+																			 'ability': {$all:Session.get('abilities')}
+																			},
+																			{sort:{'cost':1}}
+																			).fetch();
 
 					_.each(card_array, function(obj){limited_array.push(obj);});
 
@@ -92,30 +115,38 @@ if (Meteor.isClient){
 					else if (Session.get('page_number') == 26)
 						return limited_array.slice(208, 216);
 				}
-				else if (Session.get('cost') == '7+'){
+				else if (Session.get('cost') == '7'){
 					var limited_array = [];
 					var card_array = Cards.find(
 																			{$or:[
-																						{'class': "",
-																		 	 			 'cost' : '7'
+																						{'class'  : "Neutral",
+																						 'ability': {$all: Session.get('abilities')},
+																		 	 			 'cost'   : 7
 																		 	 			},
-																		 	 			{'class': "",
-																		 	 			 'cost' : '8'
+																		 	 			{'class': "Neutral",
+																						 'ability': {$all: Session.get('abilities')},
+																		 	 			 'cost' : 8
 																		 	 			},
-																		 	 			{'class': "",
-																		 	 			 'cost' : '9'
+																		 	 			{'class': "Neutral",
+																						 'ability': {$all: Session.get('abilities')},
+																		 	 			 'cost' : 9
 																		 	 			},
-																		 	 			{'class': "",
-																		 	 			 'cost' : '10'
+																		 	 			{'class': "Neutral",
+																		 	 			 'cost' : 10,
+																						 'ability': {$all: Session.get('abilities')}
 																		 	 			},
-																		 	 			{'class': "",
-																		 	 			 'cost' : '12'
+																		 	 			{'class': "Neutral",
+																		 	 			 'cost' : 12,
+																						 'ability': {$all: Session.get('abilities')}
 																		 	 			},
-																		 	 			{'class': "",
-																		 	 		   'cost' : '20'
+																		 	 			{'class': "Neutral",
+																						 'ability': {$all: Session.get('abilities')},
+																		 	 		   'cost' : 20
 																		 	 		  }
 																		 	 		 ]
-																			}).fetch();
+																			},
+																			{sort:{'cost':1}}
+																			).fetch();
 
 					Session.set('page_count', Math.ceil(card_array.length / 8));
 
@@ -128,9 +159,12 @@ if (Meteor.isClient){
 				}
 				else{
 					var limited_array = [];
-					var card_array = Cards.find({'class': "",
+					var card_array = Cards.find({'class': "Neutral",
+																			 'ability': {$all: Session.get('abilities')},
 																		 	 'cost' : Session.get('cost')
-																			}).fetch();
+																			},
+																			{sort:{'cost':1}}
+																			).fetch();
 					Session.set('page_count', Math.ceil(card_array.length / 8));
 
 					_.each(card_array, function(obj){limited_array.push(obj);});
@@ -158,8 +192,9 @@ if (Meteor.isClient){
 			{
 				if (Session.get('cost') == 'All'){
 					var limited_array = [];
-					var card_array = Cards.find({'class': Session.get('class')
-												  	     			}).fetch();
+					var card_array = Cards.find({'class': Session.get('class'),
+																			 'ability': {$all: Session.get('abilities')},
+												  	     			},{sort:{'cost':1}}).fetch();
 					_.each(card_array, function(obj){limited_array.push(obj);});
 
 					Session.set('page_count', Math.ceil(card_array.length / 8));
@@ -179,30 +214,36 @@ if (Meteor.isClient){
 					else if (Session.get('page_number') == 6)
 						return limited_array.slice(48, 56);
 				}
-				else if (Session.get('cost') == '7+'){
+				else if (Session.get('cost') == '7'){
 					var limited_array = [];
 					var card_array = Cards.find(
 																			{$or:[
 																						{'class': Session.get('class'),
-																		 	 			 'cost' : '7'
+																						 'ability': {$all: Session.get('abilities')},
+																		 	 			 'cost' : 7
 																		 	 			},
 																		 	 			{'class': Session.get('class'),
-																		 	 			 'cost' : '8'
+																						 'ability': {$all: Session.get('abilities')},
+																		 	 			 'cost' : 8
 																		 	 			},
 																		 	 			{'class': Session.get('class'),
-																		 	 			 'cost' : '9'
+																						 'ability': {$all: Session.get('abilities')},
+																		 	 			 'cost' : 9
 																		 	 			},
 																		 	 			{'class': Session.get('class'),
-																		 	 			 'cost' : '10'
+																						 'ability': {$all: Session.get('abilities')},
+																		 	 			 'cost' : 10
 																		 	 			},
 																		 	 			{'class': Session.get('class'),
-																		 	 			 'cost' : '12'
+																						 'ability': {$all: Session.get('abilities')},
+																		 	 			 'cost' : 12
 																		 	 			},
 																		 	 			{'class': Session.get('class'),
-																		 	 			 'cost' : '20'
+																						 'ability': {$all: Session.get('abilities')},
+																		 	 			 'cost' : 20
 																		 	 			}
 																		 	 		 ]
-																			}).fetch();
+																			},{sort:{'cost':1}}).fetch();
 					Session.set('page_count', Math.ceil(card_array.length / 8));
 
 					_.each(card_array, function(obj){limited_array.push(obj);});
@@ -218,8 +259,9 @@ if (Meteor.isClient){
 					
 					var limited_array = [];
 					var card_array = Cards.find({'class': Session.get('class'),
+																			 'ability': {$all: Session.get('abilities')},
 																		 	 'cost' : Session.get('cost')
-																			}).fetch();
+																			},{sort:{'cost':1	}}).fetch();
 					Session.set('page_count', Math.ceil(card_array.length / 8));
 
 					_.each(card_array, function(obj){limited_array.push(obj);});
