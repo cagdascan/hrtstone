@@ -1,5 +1,5 @@
 Template.builddeck.events({
-	///******* Left class navigation ********/////
+	///******* Left class navigation ********////	
 	'click ul#classes li': function (event) {
 		var selected_class = $(event.currentTarget).attr('id');
 		var target = event.currentTarget;
@@ -72,34 +72,20 @@ Template.builddeck.events({
 	},
 	///****** Filter cards with left abilities navigation *******///
 	'click li.ability': function(event) {
-  	// console.log($(event.currentTarget).html());
-  	// if ($(event.currentTarget).find('.active') == true)
-  	// 	console.log('active');
-  	// else
-  	// 	console.log('not active');
-  	// var abilities = Session.get('abilities');
-  	// abilities.push($(event.currentTarget).html());
-  	// Session.set('abilities', abilities);
+    $(event.currentTarget).toggleClass('active');
 
-
-      $(event.currentTarget).toggleClass('active');
-
-      var values = [];
-      if ($('ul#abilities').find('.active').html() == undefined){
-        Session.set('abilities', []);
-      }
-      else
-      {
-        $('ul#abilities').find('.active').each( function() {
-          values.push($(this).html());
-          Session.set('abilities', values);
-        });
-      }
-
-
-
-
-
+    var values = [];
+    if ($('ul#abilities').find('.active').html() == undefined){
+      Session.set('abilities', []);
+    }
+    else
+    {
+      $('ul#abilities').find('.active').each( function() {
+        values.push($(this).html());
+        Session.set('abilities', values);
+      });
+    }
+    Session.set('page_number', 0);
 	},
 	///******* Remove cards from your current deck **********///
 	'click .filter4 .cardlist li': function () {
@@ -867,6 +853,11 @@ Template.builddeck.rendered = function () {
 		$('.arrow_right').hide();
 	else
 		$('.arrow_right').show();
+
+	if (Session.get('page_count') == 0){
+		$('.arrow_left').hide();
+		$('.arrow_right').hide();
+	}
 
 	Session.get('abilities').forEach(function(ability){ 
     $("li[data-value='" + ability + "']").addClass('active');
